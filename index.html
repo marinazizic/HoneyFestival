@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Honey</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+    <link rel="manifest" href="./favicon/site.webmanifest">
+</head>
+
+<body>
+    <div class="container">
+        <div class="frontpage">
+            <!-- background -->
+            <video id="background-video" autoplay loop muted>
+                <source src="./assets/bg-video.mp4" type="video/mp4">
+            </video>
+            <!-- <div class="header">
+                <ul>
+                    <li id="menu">
+                        <a href=""><img src="./assets/hamburger-menu.svg" alt="" class="menu"></a>
+                    </li>
+                    <li>
+                        <a href=""><img src="./assets/twitter.png" alt="Twitter" class="socials"></a>
+                    </li>
+                    <li>
+                        <a href=""><img src="./assets/youtube.png" alt="YouTube" class="socials"></a>
+                    </li>
+                    <li>
+                        <a href=""><img src="./assets/facebook.png" alt="Facebook" class="socials"></a>
+                    </li>
+                    <li>
+                        <a href=""><img src="./assets/instagram.png" alt="Instagram" class="socials"></a>
+                    </li>
+                </ul>
+            </div> -->
+            <div id="myNav" class="navbar">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <div class="navbar-content">
+                    <a href="#aboutus" onclick="closeNav()">About us</a>
+                    <a href="#location" onclick="closeNav()">Location</a>
+                    <a href="#ratings" onclick="closeNav()">Your opinions</a>
+                    <a href="#tickets" onclick="closeNav()">Buy tickets</a>
+                </div>
+            </div>
+
+            <span onclick="openNav()"><img src="./assets/hamburger-menu.svg" alt="" id="menu-img"></span>
+
+            <div class="main" id="main">
+                <div class="headings">
+                    <h1 class="main-heading">honey festival</h1>
+                    <h1 class="main-heading">july 03</h1>
+                    <p>July 03, 2023, 18:00h</p>
+                    <button><a href="#aboutus">Find out more</a></button>
+                </div>
+            </div>
+        </div>
+        <div id="spacer1"></div>
+        <div class="aboutus" id="aboutus">
+            <div class="aboutus-grid">
+                <div class="left-side">
+                    <img src="./assets/concert-img.jpg" alt="" id="concert-img">
+
+                </div>
+                <div class="right-side">
+                    <div class="abt-text">
+                        <p class="small-headings">what you should know</p>
+                        <h1 class="main-captions">about us</h1>
+                        <p>Honey is a vibrant celebration of independent art and music, bringing together talented
+                            artists and passionate enthusiasts in a one-of-a-kind experience. Join us as we embrace the
+                            spirit of creativity, push boundaries, showcase the best of indie talent, and where the
+                            energy of indie artistry comes alive. Welcome to Honey, where passion, innovation, and
+                            artistic freedom take center stage.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="spacer2"></div>
+        <div class="location" id="location">
+            <div class="location-grid">
+                <div class="left-side1">
+                    <div class="location-text">
+                        <p class="small-headings">where you can find us</p>
+                        <h1 class="main-captions">location</h1>
+                        <p>
+                            Located in the heart of Beverly Hills, our festival site pulsates with energy and
+                            creativity. Follow the rhythmic beats and
+                            melodious tunes as they guide you through the lively streets, leading you to our festival
+                            haven. Nestled in Beverly Gardens Park, the air is filled with the aroma of delicious street
+                            food and the sights of colorful art installations. Dance under the open sky, surrounded by
+                            enthusiastic music lovers, as the sun sets and the stars illuminate the night.</p>
+                    </div>
+                </div>
+                <div class="right-side1">
+                    <img src="./assets/location-img.jpg" alt="" id="location-img">
+                </div>
+            </div>
+        </div>
+        <div id="spacer3"></div>
+        <div class="testimonials" id="ratings">
+            <div class="testimonial-headings">
+                <p class="small-headings">what you think about us</p>
+                <h1 class="main-captions">testimonials</h1>
+            </div>
+            <div class="testimonials-grid">
+                <div class="left-testimonial">
+                    <p class="rating">The vibrant atmosphere, filled with talented artists and musicians, created an
+                        unforgettable experience. The unique blend of indie films, live performances, and interactive
+                        art installations made each moment truly captivating. I left the festival feeling inspired,
+                        energized, and with a newfound appreciation for the indie arts scene. I can't wait for next
+                        year's event!</p>
+                    <div class="person"><img src="./assets/person1.jpg" alt="">
+                        <p>Jeanette Perkins</p>
+                    </div>
+                </div>
+                <div class="right-testimonial">
+                    <p class="rating">I had the privilege of attending Honey and it exceeded all my expectations. From
+                        thought-provoking indie films to captivating live performances, every moment was filled with raw
+                        talent and authentic expression. It was a truly immersive experience that left me feeling
+                        inspired and grateful for the vibrant indie arts scene. I can't wait to return next year and
+                        discover even more hidden gems.</p>
+                    <div class="person"><img src="./assets/person2.jpg" alt="">
+                        <p>Peter Robinson</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="spacer3"></div>
+        <div class="coverpage">
+            <img src="./assets/cover-img.jpg" alt="" id="bg-img">
+            <div class="main-cover">
+                <div class="cover-headings">
+                    <p class="small-headings">join us</p>
+                    <h1 class="main-heading">get your ticket</h1>
+                    <h1 class="main-heading">now</h1>
+                    <button><a href="#tickets">Get tickets</a></button>
+                </div>
+            </div>
+        </div>
+        <div class="shop" id="tickets">
+            <img src="./assets/tickets-img.jpg" alt="" id="tickets-img">
+            <div class="shop-headings">
+                <div class="small-headings">first and last step</div>
+                <div class="main-heading">buy tickets</div>
+            </div>
+            <form action="" class="buy">
+                <input type="text" name="f_name" id="f_name" required placeholder="First name">
+                <br>
+                <input type="text" name="l_name" id="l_name" required placeholder="Last name">
+                <br>
+                <input type="email" name="email" id="email" required placeholder="Your e-mail">
+                <br>
+                <input type="number" name="num" id="num" placeholder="Number of tickets" required>
+                <br>
+                <label for="terms">
+                    <input type="checkbox" name="terms" id="terms" required>I have read and accepted the Terms and
+                    Conditions
+                </label>
+                <br>
+                <div class="buttons">
+                    <input type="reset" value="Reset" onclick="resetEmail()">
+                    <input type="submit" value="Send" onclick="checkEmail()">
+                </div>
+                <br>
+                <div class="empty-txt"></div>
+            </form>
+
+        </div>
+        <div id="spacer4"></div>
+        <div class="footer">
+            <div class="footer-grid">
+                <div class="column one">
+                    <h3 class="medium-headings">About us</h3>
+                    <p>Discover a kaleidoscope of independent music, captivating art installations, and a community
+                        celebration that defines the essence of Honey. Eclectic sounds, vibrant art, and local talent
+                        unite here.</p>
+                    <a href="https://twitter.com/home">
+                        <img src="./assets/twitter.png" alt="">
+                    </a>
+                    <a href="https://youtube.com">
+                        <img src="./assets/youtube.png" alt="">
+                    </a>
+                    <a href="https://web.facebook.com/?_rdc=1&_rdr">
+                        <img src="./assets/facebook.png" alt="">
+                    </a>
+                    <a href="https://www.instagram.com/">
+                        <img src="./assets/instagram.png" alt="">
+                    </a>
+
+                </div>
+                <div class="column two">
+                    <h3 class="medium-headings">Navigation</h3>
+                    <ul>
+                        <li><a href="#aboutus">About us</a></li>
+                        <li><a href="#location">Location</a></li>
+                        <li><a href="#ratings">Testimonials</a></li>
+                        <li><a href="#tickets">Buy tickets</a></li>
+                    </ul>
+                </div>
+                <div class="column three">
+                    <h3 class="medium-headings">Location</h3>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3304.890339226678!2d-118.4060238241669!3d34.07232527314937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2bc067883b7c3%3A0xbe77c78730883f2b!2sBeverly%20Gardens%20Park!5e0!3m2!1shr!2shr!4v1685301800983!5m2!1shr!2shr"
+                        width="280" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+        <script>
+            function openNav() {
+                document.getElementById("myNav").style.width = "100%";
+            }
+
+            function closeNav() {
+                document.getElementById("myNav").style.width = "0%";
+            }
+
+            function checkEmail() {
+                document.getElementsByClassName("empty-txt")[0].innerHTML = "Thank you! We will send you an e-mail with your receipt and payment method."
+            }
+
+            function resetEmail() {
+                document.getElementsByClassName("empty-txt")[0].innerHTML = ""
+            }
+        </script>
+</body>
+
+</html>
