@@ -20,25 +20,7 @@
             <video id="background-video" autoplay loop muted>
                 <source src="./assets/bg-video.mp4" type="video/mp4">
             </video>
-            <!-- <div class="header">
-                <ul>
-                    <li id="menu">
-                        <a href=""><img src="./assets/hamburger-menu.svg" alt="" class="menu"></a>
-                    </li>
-                    <li>
-                        <a href=""><img src="./assets/twitter.png" alt="Twitter" class="socials"></a>
-                    </li>
-                    <li>
-                        <a href=""><img src="./assets/youtube.png" alt="YouTube" class="socials"></a>
-                    </li>
-                    <li>
-                        <a href=""><img src="./assets/facebook.png" alt="Facebook" class="socials"></a>
-                    </li>
-                    <li>
-                        <a href=""><img src="./assets/instagram.png" alt="Instagram" class="socials"></a>
-                    </li>
-                </ul>
-            </div> -->
+
             <div id="myNav" class="navbar">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                 <div class="navbar-content">
@@ -48,7 +30,6 @@
                     <a href="#tickets" onclick="closeNav()">Buy tickets</a>
                 </div>
             </div>
-
             <span onclick="openNav()"><img src="./assets/hamburger-menu.svg" alt="" id="menu-img"></span>
 
             <div class="main" id="main">
@@ -60,27 +41,32 @@
                 </div>
             </div>
         </div>
+
         <div id="spacer1"></div>
+
         <div class="aboutus" id="aboutus">
             <div class="aboutus-grid">
                 <div class="left-side">
                     <img src="./assets/concert-img.jpg" alt="" id="concert-img">
-
                 </div>
                 <div class="right-side">
                     <div class="abt-text">
                         <p class="small-headings">what you should know</p>
                         <h1 class="main-captions">about us</h1>
-                        <p>Honey is a vibrant celebration of independent art and music, bringing together talented
+                        <p>
+                            Honey is a vibrant celebration of independent art and music, bringing together talented
                             artists and passionate enthusiasts in a one-of-a-kind experience. Join us as we embrace the
                             spirit of creativity, push boundaries, showcase the best of indie talent, and where the
                             energy of indie artistry comes alive. Welcome to Honey, where passion, innovation, and
-                            artistic freedom take center stage.</p>
+                            artistic freedom take center stage.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
+
         <div id="spacer2"></div>
+
         <div class="location" id="location">
             <div class="location-grid">
                 <div class="left-side1">
@@ -93,7 +79,8 @@
                             melodious tunes as they guide you through the lively streets, leading you to our festival
                             haven. Nestled in Beverly Gardens Park, the air is filled with the aroma of delicious street
                             food and the sights of colorful art installations. Dance under the open sky, surrounded by
-                            enthusiastic music lovers, as the sun sets and the stars illuminate the night.</p>
+                            enthusiastic music lovers, as the sun sets and the stars illuminate the night.
+                        </p>
                     </div>
                 </div>
                 <div class="right-side1">
@@ -101,7 +88,9 @@
                 </div>
             </div>
         </div>
+
         <div id="spacer3"></div>
+
         <div class="testimonials" id="ratings">
             <div class="testimonial-headings">
                 <p class="small-headings">what you think about us</p>
@@ -130,7 +119,9 @@
                 </div>
             </div>
         </div>
+
         <div id="spacer3"></div>
+
         <div class="coverpage">
             <img src="./assets/cover-img.jpg" alt="" id="bg-img">
             <div class="main-cover">
@@ -142,12 +133,14 @@
                 </div>
             </div>
         </div>
+
         <div class="shop" id="tickets">
             <img src="./assets/tickets-img.jpg" alt="" id="tickets-img">
             <div class="shop-headings">
                 <div class="small-headings">first and last step</div>
                 <div class="main-heading">buy tickets</div>
             </div>
+
             <form action="" class="buy">
                 <input type="text" name="f_name" id="f_name" required placeholder="First name">
                 <br>
@@ -158,7 +151,8 @@
                 <input type="number" name="num" id="num" placeholder="Number of tickets" required>
                 <br>
                 <label for="terms">
-                    <input type="checkbox" name="terms" id="terms" required>I have read and accepted the Terms and
+                    <input type="checkbox" name="terms" id="terms" required>
+                    I have read and accepted the Terms and
                     Conditions
                 </label>
                 <br>
@@ -169,9 +163,10 @@
                 <br>
                 <div class="empty-txt"></div>
             </form>
-
         </div>
+
         <div id="spacer4"></div>
+
         <div class="footer">
             <div class="footer-grid">
                 <div class="column one">
@@ -191,8 +186,8 @@
                     <a href="https://www.instagram.com/">
                         <img src="./assets/instagram.png" alt="">
                     </a>
-
                 </div>
+
                 <div class="column two">
                     <h3 class="medium-headings">Navigation</h3>
                     <ul>
@@ -202,6 +197,7 @@
                         <li><a href="#tickets">Buy tickets</a></li>
                     </ul>
                 </div>
+
                 <div class="column three">
                     <h3 class="medium-headings">Location</h3>
                     <iframe
@@ -211,23 +207,26 @@
                 </div>
             </div>
         </div>
-        <script>
-            function openNav() {
-                document.getElementById("myNav").style.width = "100%";
-            }
+    </div>
 
-            function closeNav() {
-                document.getElementById("myNav").style.width = "0%";
-            }
+    <script>
+        function openNav() {
+            document.getElementById("myNav").style.width = "100%";
+        }
 
-            function checkEmail() {
-                document.getElementsByClassName("empty-txt")[0].innerHTML = "Thank you! We will send you an e-mail with your receipt and payment method."
-            }
+        function closeNav() {
+            document.getElementById("myNav").style.width = "0%";
+        }
 
-            function resetEmail() {
-                document.getElementsByClassName("empty-txt")[0].innerHTML = ""
-            }
-        </script>
+        function checkEmail() {
+            document.getElementsByClassName("empty-txt")[0].innerHTML = "Thank you! We will send you an e-mail with your receipt and payment method."
+        }
+
+        function resetEmail() {
+            document.getElementsByClassName("empty-txt")[0].innerHTML = ""
+        }
+    </script>
+
 </body>
 
 </html>

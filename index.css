@@ -25,12 +25,12 @@ body {
     font-family: Louis George Cafe;
 }
 
-::selection{
+::selection {
     color: white;
     background-color: rgb(219, 200, 160);
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
     display: none;
 }
 
@@ -116,18 +116,6 @@ body {
     font-size: 60px;
 }
 
-@media screen and (max-height: 500px) {
-    .overlay a {
-        font-size: 20px
-    }
-
-    .overlay .closebtn {
-        font-size: 40px;
-        top: 15px;
-        right: 35px;
-    }
-}
-
 .main {
     width: 90%;
     position: relative;
@@ -187,13 +175,6 @@ button a {
     color: black;
 }
 
-@media only screen and (max-width: 500px) {
-    .main-heading {
-        font-size: 36px;
-    }
-
-}
-
 #spacer1 {
     display: none;
     padding: 10%;
@@ -251,31 +232,6 @@ button a {
     padding: 15px 25%;
 }
 
-@media only screen and (max-width: 500px) {
-
-    .aboutus {
-        height: 100%;
-    }
-
-    .aboutus-grid {
-        display: grid;
-        grid-template-columns: auto;
-        grid-template-rows: 100vh 100vh;
-    }
-
-    .left-side {
-        grid-area: 1 / 1 / 2 / 1;
-    }
-
-    .right-side {
-        grid-area: 2 / 1 / 3 / 1;
-    }
-
-    #spacer1 {
-        display: block;
-    }
-}
-
 .location {
     background-color: white;
 }
@@ -305,37 +261,6 @@ button a {
 .right-side1 {
     height: 100%;
     grid-area: 1 / 2 / 1 / 3;
-}
-
-@media only screen and (max-width: 500px) {
-
-    #spacer2,
-    #spacer3,
-    #spacer4 {
-        padding: 10%;
-    }
-
-    .location {
-        height: 100%;
-    }
-
-    .location-grid {
-        display: grid;
-        grid-template-columns: auto;
-        grid-template-rows: 100vh 100vh;
-    }
-
-    .left-side1 {
-        grid-area: 1 / 1 / 2 / 1;
-    }
-
-    .right-side1 {
-        grid-area: 2 / 1 / 3 / 1;
-    }
-
-    .main-captions {
-        font-size: 36px;
-    }
 }
 
 .testimonials {
@@ -387,32 +312,6 @@ button a {
 .person p {
     font-size: 16px;
     font-family: Praysire;
-}
-
-@media only screen and (max-width: 500px) {
-
-    .testimonials {
-        height: 100%;
-    }
-
-    .testimonials-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto;
-        grid-gap: 30px;
-    }
-
-    .left-testimonial {
-        grid-area: 1 / 1 / 2 / 1;
-    }
-
-    .right-testimonial {
-        grid-area: 2 / 1 / 3 / 1;
-    }
-
-    #spacer3 {
-        padding: 10%;
-    }
 }
 
 .coverpage {
@@ -540,45 +439,45 @@ label {
     grid-area: 1 / 3 / 1 / 4;
 }
 
-.medium-headings{
+.medium-headings {
     font-family: Praysire;
     font-size: 30px;
     margin-bottom: 15px;
 }
 
-.one p{
+.one p {
     width: 60%;
-    margin-left:20%;
+    margin-left: 20%;
     margin-bottom: 15px;
 }
 
-.one a{
+.one a {
     text-decoration: none;
     color: black;
 }
 
-.one img{
+.one img {
     width: 15px;
     padding: 10px;
     cursor: pointer;
 }
 
-.one img:hover{
+.one img:hover {
     opacity: 70%;
     transition: 0.6s;
 }
 
-.two a{
+.two a {
     text-decoration: none;
     color: black;
 }
 
-.two a:hover{
+.two a:hover {
     opacity: 70%;
     transition: 0.6s;
 }
 
-.two li{
+.two li {
     list-style: none;
     padding: 10px 0px;
     font-size: 19px;
@@ -586,39 +485,127 @@ label {
     margin-left: -30px;
 }
 
-@media only screen and (max-width: 500px){
+@media only screen and (max-width: 500px) {
 
-    #tickets-img{
-        width: 300px;
+    .overlay a {
+        font-size: 20px
     }
 
-    .footer{
+    .overlay .closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
+
+    .main-heading {
+        font-size: 36px;
+    }
+
+    .aboutus {
         height: 100%;
     }
 
-    .footer-grid{
+    .aboutus-grid {
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: 100vh 100vh;
+    }
+
+    .left-side {
+        grid-area: 1 / 1 / 2 / 1;
+    }
+
+    .right-side {
+        grid-area: 2 / 1 / 3 / 1;
+    }
+
+    #spacer1 {
+        display: block;
+    }
+
+    #spacer2,
+    #spacer3,
+    #spacer4 {
+        padding: 10%;
+    }
+
+    .location {
+        height: 100%;
+    }
+
+    .location-grid {
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: 100vh 100vh;
+    }
+
+    .left-side1 {
+        grid-area: 1 / 1 / 2 / 1;
+    }
+
+    .right-side1 {
+        grid-area: 2 / 1 / 3 / 1;
+    }
+
+    .main-captions {
+        font-size: 36px;
+    }
+
+    .testimonials {
+        height: 100%;
+    }
+
+    .testimonials-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        grid-gap: 30px;
+    }
+
+    .left-testimonial {
+        grid-area: 1 / 1 / 2 / 1;
+    }
+
+    .right-testimonial {
+        grid-area: 2 / 1 / 3 / 1;
+    }
+
+    #spacer3 {
+        padding: 10%;
+    }
+
+    #tickets-img {
+        width: 300px;
+    }
+
+    .footer {
+        height: 100%;
+    }
+
+    .footer-grid {
         display: grid;
         grid-template-columns: 100%;
         grid-template-rows: auto auto auto;
     }
 
-    .medium-headings{
+    .medium-headings {
         margin-top: 30px;
     }
 
-    .one{
+    .one {
         grid-area: 1 / 1 / 2 / 1;
     }
 
-    .one p{
+    .one p {
         margin-left: 60px;
     }
 
-    .two{
+    .two {
         grid-area: 2 / 1 / 3 / 1;
     }
 
-    .three{
+    .three {
         grid-area: 3 / 1 / 4 / 1;
     }
+    
 }
