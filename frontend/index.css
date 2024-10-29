@@ -1,0 +1,613 @@
+/* fonts */
+@font-face {
+    font-family: Praysire;
+    src: url(./fonts/praysire/Praysire\ Demo.otf);
+}
+
+@font-face {
+    font-family: Louis George Cafe;
+    src: url(./fonts/louis_george_caf/Louis\ George\ Cafe.ttf);
+}
+
+@font-face {
+    font-family: Louis George Cafe Bold;
+    src: url(./fonts/louis_george_caf/Louis\ George\ Cafe\ Bold.ttf);
+}
+
+/* code */
+
+* {
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Louis George Cafe;
+}
+
+::selection {
+    color: white;
+    background-color: rgb(219, 200, 160);
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 100%;
+}
+
+.frontpage {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    background-color: transparent;
+}
+
+#background-video {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.navbar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    background-color: white;
+    background-color: rgba(255, 255, 255, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.navbar-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.navbar a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+    font-family: Praysire;
+}
+
+.navbar a:hover,
+.navbar a:focus {
+    color: #bababa;
+}
+
+#menu-img {
+    width: 35px;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.navbar .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+
+.main {
+    width: 90%;
+    position: relative;
+}
+
+.main-heading {
+    font-family: Praysire;
+    font-size: 74px;
+    text-transform: capitalize;
+}
+
+.headings {
+    position: absolute;
+    top: 45%;
+    bottom: 0;
+    left: 20%;
+}
+
+.headings p {
+    font-size: 19px;
+}
+
+button {
+    margin-top: 15px;
+    font-size: 15px;
+    font-family: Louis George Cafe;
+    padding: 15px 20px;
+    border: none;
+    background: #ffffff;
+    cursor: pointer;
+}
+
+button:hover {
+    transition: 0.6s;
+    box-shadow: 6px 57px 23px rgba(255, 255, 255, 0.04), 3px 32px 20px rgba(255, 255, 255, 0.13), 2px 14px 14px rgba(255, 255, 255, 0.21), 0px 4px 8px rgba(255, 255, 255, 0.25), 0px 0px 0px rgba(255, 255, 255, 0.25);
+}
+
+input[type=reset],
+input[type=submit] {
+    margin-top: 15px;
+    font-size: 15px;
+    font-family: Louis George Cafe;
+    border: none;
+    background: rgb(206, 206, 186);
+    cursor: pointer;
+}
+
+[type=reset]:hover,
+input[type=submit]:hover {
+    transition: 0.6s;
+    box-shadow: 6px 57px 23px rgba(206, 206, 186, 0.04), 3px 32px 20px rgba(206, 206, 186, 0.13), 2px 14px 14px rgba(206, 206, 186, 0.21), 0px 4px 8px rgba(206, 206, 186, 0.25), 0px 0px 0px rgba(206, 206, 186, 0.25);
+}
+
+button a {
+    text-decoration: none;
+    padding: 15px 20px;
+    color: black;
+}
+
+#spacer1 {
+    display: none;
+    padding: 10%;
+}
+
+.aboutus {
+    background-color: white;
+}
+
+.aboutus-grid {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: 100vh;
+}
+
+#concert-img,
+#location-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    vertical-align: bottom;
+}
+
+.left-side {
+    height: 100%;
+    grid-area: 1 / 1 / 1 / 2;
+}
+
+.right-side {
+    height: 100%;
+    grid-area: 1 / 2 / 1 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: left;
+}
+
+.small-headings {
+    text-transform: uppercase;
+    color: rgb(148, 121, 104);
+    font-size: 12px;
+    letter-spacing: 0.1cm;
+    margin-bottom: 15px;
+}
+
+.main-captions {
+    font-size: 54px;
+    font-family: Praysire;
+    text-transform: capitalize;
+}
+
+.abt-text,
+.location-text {
+    padding: 15px 25%;
+}
+
+.location {
+    background-color: white;
+}
+
+#spacer2,
+#spacer3,
+#spacer4 {
+    padding: 5%
+}
+
+.location-grid {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-rows: 100vh;
+}
+
+.left-side1 {
+    height: 100%;
+    grid-area: 1 / 1 / 1 / 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: left;
+}
+
+.right-side1 {
+    height: 100%;
+    grid-area: 1 / 2 / 1 / 3;
+}
+
+.testimonials {
+    background-color: white;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.testimonials-grid {
+    margin-top: 30px;
+    width: 80%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 1fr;
+    grid-gap: 30px;
+}
+
+.left-testimonial {
+    grid-area: 1 / 1 / 1 / 2;
+    background-color: rgb(234, 234, 234);
+    padding: 20px;
+    border-radius: 30px;
+}
+
+.right-testimonial {
+    grid-area: 1 / 2 / 1 / 3;
+    background-color: rgb(234, 234, 234);
+    padding: 20px;
+    border-radius: 30px;
+}
+
+.person {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.person img {
+    width: 50px;
+    margin-right: 15px;
+    border-radius: 100%;
+}
+
+.person p {
+    font-size: 16px;
+    font-family: Praysire;
+}
+
+.coverpage {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+#bg-img {
+    width: 100%;
+    height: 100%;
+    vertical-align: bottom;
+    z-index: -1;
+    position: relative;
+    object-fit: cover;
+}
+
+.main-cover {
+    z-index: 1;
+    position: absolute;
+    top: 45%;
+    bottom: 0;
+    left: 20%;
+}
+
+.coverpage h1,
+.coverpage p {
+    color: white;
+}
+
+#tickets-img {
+    width: 450px;
+    z-index: -1;
+    position: absolute;
+    top: 1;
+    left: -5%;
+    right: 0;
+    bottom: 0;
+    border-radius: 70% 70% 0% 0%;
+    object-fit: cover;
+}
+
+.buy {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.shop {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.buy,
+.shop-heading {
+    z-index: 1;
+}
+
+input[type=text],
+input[type=email],
+input[type=number] {
+    padding: 10px;
+    margin-top: 5px;
+    width: 60%;
+    font-family: Louis George Cafe;
+    border: 2px solid gray;
+    transition: 0.6s;
+    outline: none;
+}
+
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=number]:focus {
+    border-radius: 0px;
+    border: 2px solid black;
+}
+
+label {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+.buttons input {
+    margin-right: 15px;
+    padding: 15px 20px;
+}
+
+.footer {
+    width: 100%;
+    height: 50vh;
+    background-color: beige;
+    display: grid;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-rows: 60%;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.one {
+    grid-area: 1 / 1 / 1 / 2;
+}
+
+.two {
+    grid-area: 1 / 2 / 1 / 3;
+}
+
+.three {
+    grid-area: 1 / 3 / 1 / 4;
+}
+
+.medium-headings {
+    font-family: Praysire;
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.one p {
+    width: 60%;
+    margin-left: 20%;
+    margin-bottom: 15px;
+}
+
+.one a {
+    text-decoration: none;
+    color: black;
+}
+
+.one img {
+    width: 15px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.one img:hover {
+    opacity: 70%;
+    transition: 0.6s;
+}
+
+.two a {
+    text-decoration: none;
+    color: black;
+}
+
+.two a:hover {
+    opacity: 70%;
+    transition: 0.6s;
+}
+
+.two li {
+    list-style: none;
+    padding: 10px 0px;
+    font-size: 19px;
+    text-align: center;
+    margin-left: -30px;
+}
+
+@media only screen and (max-width: 500px) {
+    .overlay a {
+        font-size: 20px
+    }
+
+    .overlay .closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
+
+    .main-heading {
+        font-size: 36px;
+    }
+
+    .aboutus {
+        height: 100%;
+    }
+
+    .aboutus-grid {
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: 100vh 100vh;
+    }
+
+    .left-side {
+        grid-area: 1 / 1 / 2 / 1;
+    }
+
+    .right-side {
+        grid-area: 2 / 1 / 3 / 1;
+    }
+
+
+    #spacer1 {
+        display: block;
+    }
+
+    #spacer2,
+    #spacer3,
+    #spacer4 {
+        padding: 10%;
+    }
+
+    .location {
+        height: 100%;
+    }
+
+    .location-grid {
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: 100vh 100vh;
+    }
+
+    .left-side1 {
+        grid-area: 1 / 1 / 2 / 1;
+    }
+
+    .right-side1 {
+        grid-area: 2 / 1 / 3 / 1;
+    }
+
+    .main-captions {
+        font-size: 36px;
+    }
+
+    .testimonials {
+        height: 100%;
+    }
+
+    .testimonials-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        grid-gap: 30px;
+    }
+
+    .left-testimonial {
+        grid-area: 1 / 1 / 2 / 1;
+    }
+
+    .right-testimonial {
+        grid-area: 2 / 1 / 3 / 1;
+    }
+
+    #spacer3 {
+        padding: 10%;
+    }
+
+    #tickets-img {
+        width: 300px;
+    }
+
+    .footer {
+        height: 100%;
+    }
+
+    .footer-grid {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: auto auto auto;
+    }
+
+    .medium-headings {
+        margin-top: 30px;
+    }
+
+    .one {
+        grid-area: 1 / 1 / 2 / 1;
+    }
+
+    .one p {
+        margin-left: 60px;
+    }
+
+    .two {
+        grid-area: 2 / 1 / 3 / 1;
+    }
+
+    .three {
+        grid-area: 3 / 1 / 4 / 1;
+    }
+
+}
