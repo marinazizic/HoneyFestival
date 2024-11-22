@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="coverpage">
+            <div id="sidebar" class="overlay">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <div class="overlay-content">
+                    <div>
+                        <p>01</p>
+                        <a href="./index.html">Home</a>
+                    </div>
+                    <div>
+                        <p>02</p>
+                        <a href="#">Schedule</a>
+                    </div>
+
+                    <div>
+                        <p>03</p>
+                        <a href="#">Facilites</a>
+                    </div>
+
+                    <div>
+                        <p>04</p>
+                        <a href="#">Tickets</a>
+                    </div>
+                    <div>
+                        <p>05</p>
+                        <a href="#">Merch</a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="header">
+                <span onclick="openNav()" class="open"><img src="../assets/hamburger-menu.svg" alt=""
+                        id="menu-img"></span>
+                <div class="accountbtn">
+                    <a href="#">My account</a>
+                </div>
+            </div>
+
+            <video id="background-video" autoplay loop muted>
+                <source src="../assets/bg-video.mp4" type="video/mp4">
+            </video>
+            <div class="main">
+                <div class="info">
+                    <h1 class="main-heading">Honey Festival</h1>
+                    <h1 class="main-heading">July</h1>
+                    <p>July 03-05, 2024, 7:00h - 06:59h</p>
+                    <a href="#aboutus">Find out more</a>
+                </div>
+            </div>
+
+        </div>
+        <div class="aboutus" id="aboutus">
+            <div class="aboutus-grid">
+                <div class="left-side">
+                    <img src="../assets/concert-img.jpg" alt="" id="concert-img">
+                </div>
+                <div class="right-side">
+                    <div class="abt-text">
+                        <p class="small-headings">what you should know</p>
+                        <h1 class="main-captions">about us</h1>
+                        <p>
+                            The Honey Festival is where indie and psychedelic culture collide, bringing together music,
+                            art, and community in a laid-back, vibrant setting. With 24/7 activities, including
+                            workshops, panels, and live performances, the festival offers something for everyone.
+                            Whether you're discovering new music, relaxing in our chill zones, or immersing yourself in
+                            unique experiences, the Honey Festival promises to be an unforgettable journey. Come as you
+                            are and leave with memories that last a lifetime.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="location">
+            <div class="location-grid">
+                <div class="left-side1">
+                    <div class="location-text">
+                        <p class="small-headings">where you can find us</p>
+                        <h1 class="main-captions">location</h1>
+                        <p>
+                            Located in the heart of Big Bear, our festival site pulsates with energy and
+                            creativity. Follow the rhythmic beats and
+                            melodious tunes as they guide you through the lively streets, leading you to our festival
+                            haven. Nestled in Stanfield Marsh Wildlife Boardwalk Park, the air is filled with the aroma
+                            of delicious street
+                            food and the sights of colorful art installations. Dance under the open sky, surrounded by
+                            enthusiastic music lovers, as the sun sets and the stars illuminate the night.
+                        </p>
+                    </div>
+                </div>
+                <div class="right-side1">
+                    <img src="../assets/location-img.jpg" alt="" id="location-img">
+                </div>
+            </div>
+        </div>
+        <div class="nums">
+            <div class="paragraphs">
+                <p class="small-headings">bringing honeybees together</p>
+                <h1 class="main-captions">Honey in Numbers</h1>
+                <div id="blurred1"></div>
+                <div id="blurred2"></div>
+                <div class="num-grid">
+                    <div class="left">
+                        <div class="left1">
+                            <h1>1200+</h1>
+                            <p>Attendees</p>
+                        </div>
+                        <div class="right1">
+                            <div class="left2">
+                                <h1>50+</h1>
+                                <p>Musicians</p>
+                            </div>
+                            <riv class="right2">
+                                <h1>3</h1>
+                                <p>Stages</p>
+                            </riv>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="left3">
+                            <h1>150+</h1>
+                            <p>Companies</p>
+                        </div>
+                        <div class="right3">
+                            <div class="left4">
+                                <h1>3</h1>
+                                <p>Days</p>
+                            </div>
+                            <riv class="right4">
+                                <h1>1</h1>
+                                <p>Unique Experience</p>
+                            </riv>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
+
+<script>
+    function openNav() {
+        document.getElementById("sidebar").style.width = "100%";
+    }
+
+    function closeNav() {
+        document.getElementById("sidebar").style.width = "0%";
+    }
+</script>

@@ -1,0 +1,451 @@
+/* fonts */
+@font-face {
+    font-family: Praysire;
+    src: url(../fonts/praysire/Praysire\ Demo.otf);
+}
+
+@font-face {
+    font-family: Louis George Cafe;
+    src: url(../fonts/louis_george_caf/Louis\ George\ Cafe.ttf);
+}
+
+@font-face {
+    font-family: Louis George Cafe Bold;
+    src: url(../fonts/louis_george_caf/Louis\ George\ Cafe\ Bold.ttf);
+}
+
+/* code */
+
+* {
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+::selection {
+    color: white;
+    background-color: rgb(219, 200, 160);
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+.container {
+    min-height: 100vh;
+    width: 100%;
+    font-family: Louis George Cafe;
+    background-color: transparent;
+}
+
+.coverpage {
+    height: 100vh;
+}
+
+#menu-img {
+    width: 35px;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.accountbtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 30px;
+}
+
+.accountbtn a:hover,
+.info a:hover {
+    transition: 0.6s;
+    box-shadow: 6px 57px 23px rgba(255, 255, 255, 0.04), 3px 32px 20px rgba(255, 255, 255, 0.13), 2px 14px 14px rgba(255, 255, 255, 0.21), 0px 4px 8px rgba(255, 255, 255, 0.25), 0px 0px 0px rgba(255, 255, 255, 0.25);
+}
+
+.accountbtn a,
+.info a {
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+    font-family: Louis George Cafe;
+    padding: 12px 15px;
+    border: none;
+    background: white;
+    cursor: pointer;
+}
+
+.overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    background-color: white;
+    background-color: rgba(255, 255, 255, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.overlay-content {
+    position: relative;
+    top: 25%;
+    margin-top: -30px;
+    width: 100%;
+}
+
+.overlay-content div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.overlay-content a {
+    padding: 8px;
+    margin-bottom: 8px;
+    text-decoration: none;
+    font-size: 54px;
+    color: #818181;
+    display: block;
+    transition: 0.5s;
+    font-family: Praysire;
+}
+
+.overlay-content p {
+    text-decoration: none;
+    font-size: 18px;
+    color: #646464;
+    display: block;
+    transition: 0.5s;
+    font-family: Praysire;
+}
+
+.overlay-content a:hover,
+.overlay-content a:focus,
+.overlay .closebtn:hover {
+    color: #bababa;
+}
+
+.overlay .closebtn {
+    text-decoration: none;
+    color: #818181;
+    position: absolute;
+    transition: 0.5s;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+
+#background-video {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.main {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-heading {
+    font-family: Praysire;
+    font-size: 74px;
+}
+
+.info p {
+    font-size: 19px;
+    margin-bottom: 20px;
+}
+
+.aboutus-grid {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: 100vh;
+}
+
+#concert-img,
+#location-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    vertical-align: bottom;
+}
+
+.left-side {
+    height: 100%;
+    grid-area: 1 / 1 / 1 / 2;
+}
+
+.right-side {
+    height: 100%;
+    grid-area: 1 / 2 / 1 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: left;
+}
+
+.small-headings {
+    text-transform: uppercase;
+    color: rgb(148, 121, 104);
+    font-size: 12px;
+    letter-spacing: 0.1cm;
+    margin-bottom: 15px;
+}
+
+.main-captions {
+    font-size: 54px;
+    font-family: Praysire;
+    text-transform: capitalize;
+}
+
+.abt-text,
+.location-text {
+    padding: 15px 25%;
+}
+
+.location-grid {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-rows: 100vh;
+}
+
+.left-side1 {
+    height: 100%;
+    grid-area: 1 / 1 / 1 / 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: left;
+}
+
+.right-side1 {
+    height: 100%;
+    grid-area: 1 / 2 / 1 / 3;
+}
+
+.nums {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.paragraphs {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.num-grid {
+    width: 70%;
+    background-color: transparent;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 60vh;
+}
+
+.num-grid h1 {
+    font-family: Praysire;
+    font-size: 64px;
+}
+
+.left {
+    background-color: transparent;
+    grid-area: 1 / 1 / 2 / 2;
+    display: grid;
+    grid-template-rows: 50% 50%;
+    grid-template-columns: 100%;
+}
+
+.left1 {
+    background-color: rgba(148, 121, 104, 0.075);
+    margin: 15px;
+    border-radius: 20px;
+    grid-area: 1 / 1 / 2 / 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.right1 {
+    background-color: transparent;
+    grid-area: 2 / 1 / 3 / 2;
+    display: grid;
+    grid-template-rows: 100%;
+    grid-template-columns: 50% 50%;
+}
+
+.left2 {
+    border-radius: 20px;
+    margin: 15px;
+     background-color: rgba(148, 121, 104, 0.075);
+    grid-area: 1 / 1 / 2 / 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.right2 {
+    margin: 15px;
+    border-radius: 20px;
+     background-color: rgba(148, 121, 104, 0.075);
+    grid-area: 1 / 2 / 2 / 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.right {
+    background-color: transparent;
+    grid-area: 1 / 2 / 2 / 3;
+    display: grid;
+    grid-template-rows: 50% 50%;
+    grid-template-columns: 100%;
+}
+
+.left3 {
+    margin: 15px;
+    border-radius: 20px;
+     background-color: rgba(148, 121, 104, 0.075);
+    grid-area: 1 / 1 / 2 / 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.right3 {
+    background-color: transparent;
+    grid-area: 2 / 1 / 3 / 2;
+    display: grid;
+    grid-template-rows: 100%;
+    grid-template-columns: 50% 50%;
+}
+
+
+.left4 {
+    margin: 15px;
+    border-radius: 20px;
+     background-color: rgba(148, 121, 104, 0.075);
+    grid-area: 1 / 1 / 2 / 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.right4 {
+    margin: 15px;
+    border-radius: 20px;
+     background-color: rgba(148, 121, 104, 0.075);
+    grid-area: 1 / 2 / 2 / 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#blurred1 {
+    width: 100%;
+    height: 100%;
+    max-width: 372px;
+    margin-top: 50px;
+    border-radius: 100%;
+    filter: blur(170px);
+    position: absolute;
+    z-index: -1;
+    background: rgb(103, 78, 62);
+}
+
+@media screen and (min-height: 450px) {
+
+    .overlay .closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
+
+}
+
+
+@media only screen and (max-width: 768px) {
+
+    .overlay-content a {
+        font-size: 50px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .overlay-content a {
+        font-size: 40px;
+    }
+
+    .main-heading {
+        font-size: 36px;
+    }
+
+    .aboutus {
+        height: 100%;
+    }
+
+    .aboutus-grid {
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: 100vh 100vh;
+    }
+
+    .left-side {
+        grid-area: 1 / 1 / 2 / 1;
+    }
+
+    .right-side {
+        grid-area: 2 / 1 / 3 / 1;
+    }
+
+    .location {
+        height: 100%;
+    }
+
+    .location-grid {
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: 100vh 100vh;
+    }
+
+    .left-side1 {
+        grid-area: 1 / 1 / 2 / 1;
+    }
+
+    .right-side1 {
+        grid-area: 2 / 1 / 3 / 1;
+    }
+}
