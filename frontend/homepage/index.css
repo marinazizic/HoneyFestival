@@ -394,7 +394,64 @@ body {
     background: rgb(143, 103, 77);
 }
 
-@media screen and (min-height: 450px) {
+.footer{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(270deg, rgb(206, 175, 156), rgb(148, 121, 104));
+}
+
+.footer-content{
+    display: grid;
+    height: 100%;
+    grid-template-columns: 100%;
+    grid-template-rows: 39vh 1vh 60vh;
+}
+
+.motto{
+    grid-area: 1 / 1 / 2 / 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.hr{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    grid-area: 2 / 1 / 3 / 2;
+}
+
+.hr hr{
+    border: 1px solid black;
+    width: 90%;
+}
+
+.footer-grid{
+    grid-area: 3 / 1 / 4 / 2;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: 100%;
+}
+
+.column-one{
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+
+.column-two{
+    background-color: black;
+    grid-area: 1 / 2 / 2 / 3;
+}
+
+
+.column-three{
+    background-color: purple;
+    grid-area: 1 / 3 / 2 / 4;
+}
+
+@media screen and (max-width: 450px) {
 
     .overlay .closebtn {
         font-size: 40px;
@@ -402,6 +459,9 @@ body {
         right: 35px;
     }
 
+    .p{
+        margin-top: 200px;
+    }
 
     .left {
         width: 100%;
@@ -429,26 +489,34 @@ body {
         grid-template-rows: 65vh 65vh;
     }
 
-    .left1, .left3 {
-        margin: 0;
+    .left1, .left2, .right2, .left3, .left4, .right4{
+        margin: 0px;
+        margin-bottom: 20px;
+    }
+
+    .left1,
+    .left3 {
         grid-area: 1 / 1 / 2 / 2;
     }
-    
-    .right1, .right3 {
+
+    .right1,
+    .right3 {
         margin: 0;
         grid-area: 2 / 1 / 3 / 2;
         display: grid;
         grid-template-rows: 50% 50%;
         grid-template-columns: 100%;
-    
+
     }
-    
-    
-    .left2, .left4 {
+
+
+    .left2,
+    .left4 {
         grid-area: 1 / 1 / 2 / 2;
     }
 
-    .right2, .right4 {
+    .right2,
+    .right4 {
         grid-area: 2 / 1 / 3 / 2;
     }
 
@@ -456,11 +524,12 @@ body {
         height: 140vh;
     }
 
-    .nums h1{
+    .nums h1 {
         margin-bottom: 50px;
     }
+
     .main-captions {
-        font-size: 35px;
+        font-size: 32px;
     }
 
     .paragraphs {
@@ -469,17 +538,6 @@ body {
         justify-content: center;
         align-items: center;
     }
-}
-
-
-@media only screen and (max-width: 768px) {
-
-    .overlay-content a {
-        font-size: 50px;
-    }
-}
-
-@media only screen and (max-width: 500px) {
     .overlay-content a {
         font-size: 40px;
     }
@@ -522,5 +580,13 @@ body {
 
     .right-side1 {
         grid-area: 2 / 1 / 3 / 1;
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+
+    .overlay-content a {
+        font-size: 50px;
     }
 }
