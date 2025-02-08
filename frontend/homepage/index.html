@@ -149,20 +149,60 @@
             </div>
         </div>
         <div class="footer">
+            <video id="background-videoo" autoplay loop muted>
+                <source src="../assets/bg-video1.mp4" type="video/mp4">
+            </video>
             <div class="footer-content">
                 <div class="motto">
                     <h1 class="main-heading">
                         A Hive of Music, Art, and Energy.
                     </h1>
                 </div>
-                
+
                 <div class="hr">
                     <hr>
                 </div>
                 <div class="footer-grid">
-                    <div class="column-one"></div>
-                    <div class="column-two"></div>
-                    <div class="column-three"></div>
+                    <div class="column-one">
+                        <img src="../assets/logofooter.png" id="footer-logo" alt="">
+                        <div class="socials">
+                            <a href="#" class="social-links">
+                                <img src="../assets/icons8-facebook.svg" alt="">
+                            </a>
+                            <a href="#" class="social-links">
+                                <img src="../assets/icons8-youtube.svg" alt="">
+                            </a>
+                            <a href="#" class="social-links">
+                                <img src="../assets/icons8-instagram-64.svg" alt="">
+
+                            </a>
+                        </div>
+                        <a href="#" id="ctn-btn">Contact us</a>
+                    </div>
+                    <div class="column-two">
+                        <ul>
+                            <li><a href="">General</a></li>
+                            <li><a href="">Schedule</a></li>
+                            <li><a href="">Facilities</a></li>
+                            <li><a href="">Tickets</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="">Merch</a></li>
+                            <li><a href="">Join us</a></li>
+                            <li><a href="">Contact</a></li>
+                            <li><a href="">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    <div class="column-three">
+                        <p>Our goal is to create an experience that exceeds expectations, inspires people, and brings
+                            moments of joy with every interaction. The Honey Festival is more than just an event – it’s
+                            a lifestyle, a source of energy, and a trusted space for those seeking to refresh their
+                            body, mind, and soul.
+                        </p>
+                        <p>
+                            Copyright – All rights reserved 2025.</p>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -173,13 +213,14 @@
 
 <script>
 
-
+    var openNav;
+    var closeNav;
     $(document).ready(function () {
-        function openNav() {
+        openNav = function () {
             document.getElementById("sidebar").style.width = "100%";
         }
 
-        function closeNav() {
+        closeNav = function () {
             document.getElementById("sidebar").style.width = "0%";
         }
 
