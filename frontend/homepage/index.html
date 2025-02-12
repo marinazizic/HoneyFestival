@@ -56,9 +56,19 @@
                 <div class="info">
                     <h1 class="main-heading">Honey Festival</h1>
                     <h1 class="main-heading">July</h1>
-                    <p>July 03-05, 2024, 7:00h - 06:59h</p>
-                    <a href="#aboutus">Find out more</a>
+                    <p>July 03-05, 2025, 7:00h - 06:59h</p>
+
                 </div>
+            </div>
+        </div>
+        <div class="findout">
+            <video id="background-video2" autoplay loop muted>
+                <source src="../assets/findout-vid.mp4" type="video/mp4">
+            </video>
+            <div class="findout-content">
+                <h1 class="main-captions">Feel the vibe</h1>
+
+                <a href="#">Buy tickets</a>
             </div>
         </div>
         <div class="aboutus" id="aboutus">
@@ -148,6 +158,39 @@
                 </div>
             </div>
         </div>
+        <div class="gallery">
+            <div class="gallery-content">
+                <h1 class="main-captions">Moments from 2024</h1>
+                <div class="photos">
+                    <img id="img1" src="../assets/cover-img.jpg">
+
+                    <div id="modal1" class="modal">
+                        <span class="close">&times;</span>
+                        <img class="modal-content" id="img01">
+                    </div>
+
+                    <img id="img2" src="../assets/cover-img.jpg">
+
+                    <div id="modal2" class="modal">
+                        <span class="close">&times;</span>
+                        <img class="modal-content" id="img02">
+                    </div>
+
+                    <img id="img3" src="../assets/cover-img.jpg">
+
+                    <div id="modal3" class="modal">
+                        <span class="close">&times;</span>
+                        <img class="modal-content" id="img03">
+                    </div>
+
+                    <img id="img4" src="../assets/cover-img.jpg">
+                    <div id="modal4" class="modal">
+                        <span class="close">&times;</span>
+                        <img class="modal-content" id="img04">
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="footer">
             <video id="background-videoo" autoplay loop muted>
                 <source src="../assets/bg-video1.mp4" type="video/mp4">
@@ -194,35 +237,28 @@
                         </ul>
                     </div>
                     <div class="column-three">
-                        <p>Our goal is to create an experience that exceeds expectations, inspires people, and brings
-                            moments of joy with every interaction. The Honey Festival is more than just an event – it’s
+                        <p>Our goal is to create an experience that exceeds expectations, inspires people, and
+                            brings
+                            moments of joy with every interaction. The Honey Festival is more than just an event –
+                            it’s
                             a lifestyle, a source of energy, and a trusted space for those seeking to refresh their
                             body, mind, and soul.
-                        </p>
-                        <p>
-                            Copyright – All rights reserved 2025.</p>
                         </p>
                     </div>
                 </div>
             </div>
+        </div>
+
+
+        <div class="copyright">
+            <p>Copyright – All rights reserved 2025.</p>
+            <a href="">Terms & conditions</a>
+            <a href="">Privacy policy</a>
+            <p>Made with ♡ by Marina Žižić</p>
         </div>
     </div>
 </body>
 
 </html>
 
-<script>
-
-    var openNav;
-    var closeNav;
-    $(document).ready(function () {
-        openNav = function () {
-            document.getElementById("sidebar").style.width = "100%";
-        }
-
-        closeNav = function () {
-            document.getElementById("sidebar").style.width = "0%";
-        }
-
-    });
-</script>
+<script src="index.js"></script>
