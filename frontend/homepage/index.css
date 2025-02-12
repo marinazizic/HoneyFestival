@@ -73,14 +73,16 @@ p {
 
 .accountbtn a:hover,
 .findout a:hover,
-.column-one #ctn-btn:hover {
+.column-one #ctn-btn:hover,
+.newsletter-content input[type=submit]:hover {
     transition: 0.6s;
     box-shadow: 6px 57px 23px rgba(255, 255, 255, 0.04), 3px 32px 20px rgba(255, 255, 255, 0.13), 2px 14px 14px rgba(255, 255, 255, 0.21), 0px 4px 8px rgba(255, 255, 255, 0.25), 0px 0px 0px rgba(255, 255, 255, 0.25);
 }
 
 .accountbtn a,
 .findout a,
-.column-one #ctn-btn {
+.column-one #ctn-btn,
+.newsletter-content input[type=submit] {
     text-decoration: none;
     color: black;
     font-size: 15px;
@@ -90,6 +92,10 @@ p {
     background: white;
     cursor: pointer;
     z-index: 1;
+}
+
+.newsletter-content input[type=submit] {
+    width: 100px;
 }
 
 .overlay {
@@ -108,7 +114,7 @@ p {
 .overlay-content {
     position: relative;
     top: 25%;
-    margin-top: -30px;
+    margin-top: -60px;
     width: 100%;
 }
 
@@ -447,7 +453,7 @@ p {
 
 #background-videoo {
     width: 100%;
-    height: 103vh;
+    height: 100vh;
     object-fit: cover;
     position: absolute;
     left: 0;
@@ -461,7 +467,7 @@ p {
     display: grid;
     height: 100%;
     grid-template-columns: 100%;
-    grid-template-rows: 39vh 1vh 60vh;
+    grid-template-rows: 38vh 1vh 58vh 3vh;
 }
 
 .motto {
@@ -491,9 +497,10 @@ p {
 
 
 .copyright {
+    grid-area: 4 / 1 / 5 / 2;
+    height: 3vh;
     background-color: transparent;
     padding: 0px 20px;
-    height: 3vh;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -594,15 +601,34 @@ p {
 .gallery {
     width: 100%;
     height: 100vh;
+    position: relative;
 }
 
-.photos{
-    
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+#star {
+    z-index: 1;
+    position: absolute;
+    width: 100px;
+    bottom: 0;
+    right: 0;
+
+}
+
+#star1 {
+    z-index: -1;
+    position: absolute;
+    width: 100px;
+    top: 0;
+    margin-top: 10%;
+    margin-left: 25%;
+    left: 0;
+}
+
+.photos {
+    position: relative;
+    display: grid;
+    grid-template-columns: 210px 210px 210px 210px;
+    grid-template-rows: 400px;
+    grid-gap: 20px;
 }
 
 .gallery-content {
@@ -620,8 +646,8 @@ p {
     cursor: pointer;
     transition: 0.6s;
     height: 400px;
-    margin: 10px;
-    width: 270px;
+    margin-top: 10px;
+    width: 210px;
     object-fit: cover;
 }
 
@@ -653,51 +679,138 @@ p {
     max-width: 700px;
 }
 
-/* .modal-content, {
-    -webkit-animation-name: zoom;
-    -webkit-animation-duration: 0.6s;
-    animation-name: zoom;
-    animation-duration: 0.6s;
-} */
-
-/* @-webkit-keyframes zoom {
-    from {
-        -webkit-transform: scale(0)
-    }
-
-    to {
-        -webkit-transform: scale(1)
-    }
+.newsletter {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-@keyframes zoom {
-    from {
-        transform: scale(0)
-    }
-
-    to {
-        transform: scale(1)
-    }
-} */
-/* 
-.close {
+.newsletter img {
+    height: 100vh;
+    width: 100vw;
+    z-index: -1;
     position: absolute;
-    top: 15px;
-    right: 35px;
-    color: #f1f1f1;
-    font-size: 40px;
-    font-weight: bold;
-    transition: 0.3s;
-} */
-/* 
-.close:hover,
-.close:focus {
-    color: #bbb;
-    text-decoration: none;
-    cursor: pointer;
-} */
+    object-fit: cover;
+}
 
-/* 100% Image Width on Smaller Screens */
+.newsletter-content {
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.newsletter-content form {
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    align-items: center;
+}
+
+.name, .mail{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+}
+
+.newsletter-content input[type=text],
+.newsletter-content select {
+    border: none;
+    background: white;
+    cursor: text;
+    z-index: 1;
+    border: 1px solid transparent;
+    outline: none;
+    padding: 10px 20px;
+    width: 70%;
+}
+
+.newsletter-content select {
+    width: 30%;
+    cursor: pointer;
+    font-family: Louis George Cafe;
+    margin-right: 5px;
+
+}
+
+.newsletter-content input[type=text]:focus,
+.newsletter-content select:focus,
+.newsletter-content input[type=email]:focus {
+    transition: 0.6s;
+    border: 1px solid black;
+}
+
+.newsletter-content input[type=email] {
+    border: none;
+    background: white;
+    cursor: text;
+    z-index: 1;
+    border: 1px solid transparent;
+    width: 100%;
+    outline: none;
+    padding: 10px 20px;
+}
+
+.newsletter-content input[type=email]::-webkit-input-placeholder,
+.newsletter-content input[type=text]::-webkit-input-placeholder {
+    font-family: Louis George Cafe;
+}
+
+.newsletter-content input[type=email]:-ms-input-placeholder,
+.newsletter-content input[type=text]:-ms-input-placeholder {
+    font-family: Louis George Cafe;
+}
+
+.newsletter-content input[type=email]:-moz-placeholder,
+.newsletter-content input[type=text]:-moz-placeholder {
+    font-family: Louis George Cafe;
+}
+
+.newsletter-content input[type=email]::-moz-placeholder,
+.newsletter-content input[type=text]::-moz-placeholder {
+    font-family: Louis George Cafe;
+}
+
+.newsletter .small-headings {
+    color: rgb(0, 0, 0);
+}
+
+.sponsors{
+    height: 50vh;
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+
+.sponsor-photos{
+    position: relative;
+}
+
+.sponsor-photos img{
+   width: 120px; 
+   padding: 10px;
+   filter: grayscale(100);
+}
+
+#star2 {
+    filter: grayscale(0);
+    z-index: 1;
+    position: absolute;
+    width: 100px;
+    margin-top: -80px;
+    margin-left: -70px;
+    top: 0;
+    left: 0;
+}
+
 @media only screen and (max-width: 700px) {
     .modal-content {
         width: 100%;
@@ -712,7 +825,7 @@ p {
 
 
     .footer {
-        height: 173vh;
+        height: 177vh;
     }
 
     #background-videoo {
@@ -724,7 +837,7 @@ p {
         display: grid;
         height: 100%;
         grid-template-columns: 100%;
-        grid-template-rows: 22vh 1vh 150vh;
+        grid-template-rows: 22vh 1vh 150vh 5vh;
     }
 
     .footer-grid {
@@ -763,12 +876,64 @@ p {
         font-size: 16px;
     }
 
+    .gallery {
+        height: 100vh;
+    }
+
+
+    .photos {
+        height: auto;
+        grid-template-columns: 250px 250px;
+        grid-template-rows: 350px 350px;
+        grid-gap: 20px;
+        margin-bottom: 20px;
+    }
+
+
     #img1,
     #img2,
     #img3,
     #img4 {
+        margin: 0;
         height: 350px;
         width: 250px;
+    }
+
+
+    .copyright {
+        grid-area: 4 / 1 / 5 / 2;
+    }
+
+    #star {
+        bottom: 0;
+        left: 0;
+        margin-left: 480px;
+    }
+
+    #star1 {
+        top: 0;
+        margin-top: 70px;
+        margin-left: 90px;
+        left: 0;
+    }
+
+    .newsletter-content select{
+        width: 35%;
+    }
+
+    .sponsors{
+        height: 55vh;
+    }
+
+    .sponsor-photos img{
+       width: 120px; 
+       padding: 10px;
+       filter: grayscale(100);
+    }
+    
+    #star2 {
+        margin-top: -100px;
+        margin-left: 0px;
     }
 }
 
@@ -915,17 +1080,35 @@ p {
         grid-area: 2 / 1 / 3 / 1;
     }
 
+    .footer {
+        height: 180vh;
+    }
+
+    .photos {
+        grid-template-columns: 250px;
+        grid-template-rows: 350px 350px 350px 350px;
+        grid-gap: 20px;
+    }
+
+    .copyright {
+        height: 100%;
+    }
+
+    .footer-content {
+        grid-template-rows: 22vh 1vh 150vh 6vh;
+    }
+
     #footer-heading {
         font-size: 35px;
         text-align: center;
     }
 
-    .column-one #footer-logo {
+    .column-fone #footer-logo {
         margin-left: 30px;
     }
 
     #background-videoo {
-        height: 180vh;
+        height: 100%;
     }
 
     .copyright {
@@ -937,10 +1120,44 @@ p {
         position: relative;
     }
 
-    .gallery{
+    .gallery {
         height: 200vh;
     }
-    .gallery h1{
+
+    .gallery h1 {
         text-align: center;
+    }
+
+    #star {
+        bottom: 0;
+        left: 0;
+        margin-left: 65%;
+    }
+
+    #star1 {
+        top: 0;
+        margin-top: 130px;
+        margin-left: 10px;
+        left: 0;
+    }
+
+    #thankYou{
+        color: wheat;
+    }
+
+    .sponsors{
+        height: 150vh;
+        padding: 40px;
+    }
+
+    .sponsor-photos{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    #star2 {
+        margin-top: 10px;
+        margin-left: -100px;
     }
 }

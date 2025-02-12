@@ -27,7 +27,13 @@ function showModal(id) {
     }
 }
 
+function showThankYou(){
+    document.getElementById("thankYou").innerHTML ="Thank you!";
+}
+
 document.getElementById("img1").addEventListener("click", function () { showModal(1); });
 document.getElementById("img2").addEventListener("click", function () { showModal(2); });
 document.getElementById("img3").addEventListener("click", function () { showModal(3); });
 document.getElementById("img4").addEventListener("click", function () { showModal(4); });
+
+document.getElementById("send").addEventListener("click", function () { showThankYou(); });
