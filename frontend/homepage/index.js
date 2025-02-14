@@ -27,8 +27,28 @@ function showModal(id) {
     }
 }
 
-function showThankYou(){
-    document.getElementById("thankYou").innerHTML ="Thank you!";
+function showThankYou() {
+    document.getElementById("thankYou").innerHTML = "Thank you!";
+}
+
+let button = document.getElementById("top_btn");
+let header = document.getElementsByClassName("header")[0];
+window.onscroll = function () { scrollFunction() };
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        button.classList.remove("hide");
+        button.classList.add("show");
+    }
+    else {
+        button.classList.remove("show");
+        button.classList.add("hide");
+    }
+}
+
+function goToTop() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
 }
 
 document.getElementById("img1").addEventListener("click", function () { showModal(1); });
@@ -37,3 +57,8 @@ document.getElementById("img3").addEventListener("click", function () { showModa
 document.getElementById("img4").addEventListener("click", function () { showModal(4); });
 
 document.getElementById("send").addEventListener("click", function () { showThankYou(); });
+
+
+$( function() {
+    $( "#accordion" ).accordion();
+  } );

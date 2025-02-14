@@ -6,11 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Honey Festival</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
     <link rel="stylesheet" href="./index.css">
 </head>
 
 <body>
     <div class="container">
+        <button onclick="goToTop()" id="top_btn"><img src="../assets/arrow.png" alt=""></button>
         <div class="coverpage">
             <div id="sidebar" class="overlay">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -50,7 +53,9 @@
                 <span onclick="openNav()" class="open"><img src="../assets/hamburger-menu.svg" alt=""
                         id="menu-img"></span>
                 <div class="accountbtn">
-                    <a href="#">My account</a>
+                    <img src="../assets/cart.ico" alt="">
+                    <!-- <a href="#">My account</a> -->
+                    <img src="../assets/user-icon.png" alt="">
                 </div>
             </div>
 
@@ -60,9 +65,10 @@
             <div class="main">
                 <div class="info">
                     <h1 class="main-heading">Honey Festival</h1>
-                    <h1 class="main-heading">July</h1>
-                    <p>July 03-05, 2025, 7:00h - 06:59h</p>
-
+                    <h1 class="main-heading">03.07.2025.</h1>
+                    <p>Stanfield Marsh Wildlife Boardwalk Park, California, USA</p>
+                    <br>
+                    <a href="#" id="buy_btn">Buy tickets</a>
                 </div>
             </div>
         </div>
@@ -73,7 +79,7 @@
             <div class="findout-content">
                 <h1 class="main-captions">Feel the vibe</h1>
 
-                <a href="#">Buy tickets</a>
+                <a href="#aboutus">Find out more</a>
             </div>
         </div>
         <div class="aboutus" id="aboutus">
@@ -163,6 +169,62 @@
                 </div>
             </div>
         </div>
+        <!-- <div class="faq">
+            <div id="accordion">
+                <h3>What is Honey Festival</h3>
+                <div>
+                    <p>
+                        Honey Festival is a four-day indie music festival featuring live concerts, DJ sets, workshops, panels, and more. A celebration
+                        of music, art, and community.
+                    </p>
+                </div>
+                <h3>What kind of music can I expect?</h3>
+                <div>
+                    <p>
+                        The festival features a mix of indie, psychedelic, folk, and alternative artists, along with immersive DJ sets with popular DJs. Expect both well-known and emerging acts, creating an unforgettable sonic experience. You can also check the <a href="#">line up</a>.
+                    </p>
+                </div>
+                <h3>Where can I buy tickets?</h3>
+                <div>
+                    <p>
+                        Tickets can be purchased <a href="#">online</a>. Be sure to grab them early - prices increase closer to the event! There will also be a limited number of tickets at the gate.
+                    </p>
+                </div>
+                <h3>Are there age restrictions?</h3>
+                <div>
+                    <p>
+                        Honey Festival is an 18+ event. Attendees must bring a valid photo ID for entry.
+                    </p>
+                </div>
+                <h3>Can I camp at the festival?</h3>
+                <div>
+                    <p>
+                        Yes! We have many <a href="#">options</a>. A designated camping area, plus glamping options for those who want extra comfort.
+                    </p>
+                </div>
+                <h3>Can I bring my own food and drinks?</h3>
+                <div>
+                    <p>
+                        You can bring your own food and non-alcoholic drinks to the camping area, but alcohol must be
+                        purchased on-site.</p>
+                </div>
+                <h3>What should I bring?</h3>
+                <div>
+                    <p>
+                        Essentials include your ticket, ID, comfy clothes, sunscreen, a reusable water bottle, and camping gear if staying overnight.</p>
+                </div>
+                <h3>What items are prohibited?</h3>
+                <div>
+                    <p>
+                        Prohibited items include weapons, illegal substances, glass bottles, large speakers, and outside alcohol. A full list of banned items will be provided before the festival.</p>
+                </div>
+                <h3>How can I get involved?</h3>
+                <div>
+                    <p>
+                        You can <a href="#">apply</a> to volunteer for free entry or to be a <a href="#">vendor</a> or <a href="#">sponsor</a>.</p>
+                </div>
+            </div>
+        </div> -->
         <div class="gallery">
             <img src="../assets/star-png.png" alt="" id="star1">
             <div class="gallery-content">
@@ -248,8 +310,9 @@
                 <img src="../assets/logo6.png" alt="">
                 <img src="../assets/logo7.png" alt="">
                 <img src="../assets/logo8.png" alt="">
-
             </div>
+            <br>
+            <a href="#" id="becomesponsor">Become a sponsor</a>
         </div>
         <div class="footer">
             <video id="background-videoo" autoplay loop muted>
