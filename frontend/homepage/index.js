@@ -34,9 +34,12 @@ let button = document.getElementById("top_btn");
 
 window.onscroll = function () {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        button.classList.replace("hide", "show");
+        button.classList.remove("hide");
+        button.classList.add("show");
     } else {
-        button.classList.replace("show", "hide");
+
+        button.classList.remove("show");
+        button.classList.add("hide");
     }
 };
 

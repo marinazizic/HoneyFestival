@@ -106,6 +106,14 @@ p {
     height: 100vh;
 }
 
+.privacy-coverpage{
+    height: auto;
+}
+
+.privacy{
+    height: 100vh;
+}
+
 #menu-img {
     width: 35px;
     padding: 15px;
@@ -1083,7 +1091,7 @@ p {
 
 @media screen and (max-width: 450px) {
 
-    .coverpage {
+    .coverpage, .privacy-coverpage {
 
         display: flex;
         flex-direction: column;
