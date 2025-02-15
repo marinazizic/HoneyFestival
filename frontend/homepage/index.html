@@ -13,7 +13,7 @@
 
 <body>
     <div class="container">
-        <button onclick="goToTop()" id="top_btn"><img src="../assets/arrow.png" alt=""></button>
+        <button onclick="goToTop()" id="top_btn"><img src="../assets/arrow.png" alt="Arrow"></button>
         <div class="coverpage">
             <div id="sidebar" class="overlay">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -50,12 +50,12 @@
             </div>
 
             <div class="header">
-                <span onclick="openNav()" class="open"><img src="../assets/hamburger-menu.svg" alt=""
+                <span onclick="openNav()" class="open"><img src="../assets/hamburger-menu.svg" alt="Menu"
                         id="menu-img"></span>
                 <div class="accountbtn">
-                    <img src="../assets/cart.ico" alt="">
+                    <img src="../assets/cart.ico" alt="Shopping cart">
                     <!-- <a href="#">My account</a> -->
-                    <img src="../assets/user-icon.png" alt="">
+                    <img src="../assets/user-icon.png" alt="User icon">
                 </div>
             </div>
 
@@ -77,15 +77,14 @@
                 <source src="../assets/findout-vid.mp4" type="video/mp4">
             </video>
             <div class="findout-content">
-                <h1 class="main-captions">Feel the vibe</h1>
-
+                <h1 id="countdown" class="main-captions"></h1>
                 <a href="#aboutus">Find out more</a>
             </div>
         </div>
         <div class="aboutus" id="aboutus">
             <div class="aboutus-grid">
                 <div class="left-side">
-                    <img src="../assets/concert-img.jpg" alt="" id="concert-img">
+                    <img src="../assets/concert-img.jpg" alt="Concert image" id="concert-img">
                 </div>
                 <div class="right-side">
                     <div class="abt-text">
@@ -121,7 +120,7 @@
                     </div>
                 </div>
                 <div class="right-side1">
-                    <img src="../assets/location-img.jpg" alt="" id="location-img">
+                    <img src="../assets/location-img.jpg" alt="Location image" id="location-img">
                 </div>
             </div>
         </div>
@@ -169,25 +168,33 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="faq">
+        <div class="faq">
+            <img src="../assets/star-png.png" id="star3" alt="Star">
+            <div class="faq-captions">
+                <p class="small-headings">let's talk</p>
+                <h1 class="main-captions">FAQs</h1>
+            </div>
             <div id="accordion">
-                <h3>What is Honey Festival</h3>
+                <h3>What is Honey Festival?</h3>
                 <div>
                     <p>
-                        Honey Festival is a four-day indie music festival featuring live concerts, DJ sets, workshops, panels, and more. A celebration
+                        Honey Festival is a four-day indie music festival featuring live concerts, DJ sets, workshops,
+                        panels, and more. A celebration
                         of music, art, and community.
                     </p>
                 </div>
                 <h3>What kind of music can I expect?</h3>
                 <div>
                     <p>
-                        The festival features a mix of indie, psychedelic, folk, and alternative artists, along with immersive DJ sets with popular DJs. Expect both well-known and emerging acts, creating an unforgettable sonic experience. You can also check the <a href="#">line up</a>.
+                        The festival features a mix of indie, psychedelic, folk, and alternative artists, along with
+                        immersive DJ sets with popular DJs.  Make sure to check the <a href="#">line up</a>.
                     </p>
                 </div>
                 <h3>Where can I buy tickets?</h3>
                 <div>
                     <p>
-                        Tickets can be purchased <a href="#">online</a>. Be sure to grab them early - prices increase closer to the event! There will also be a limited number of tickets at the gate.
+                        Tickets can be purchased <a href="#">online</a>. Be sure to grab them early - prices increase
+                        closer to the event! There will also be a limited number of tickets at the gate.
                     </p>
                 </div>
                 <h3>Are there age restrictions?</h3>
@@ -199,70 +206,62 @@
                 <h3>Can I camp at the festival?</h3>
                 <div>
                     <p>
-                        Yes! We have many <a href="#">options</a>. A designated camping area, plus glamping options for those who want extra comfort.
+                        Yes! We have many <a href="#">options</a>. A designated camping area, plus glamping options for
+                        those who want extra comfort.
                     </p>
-                </div>
-                <h3>Can I bring my own food and drinks?</h3>
-                <div>
-                    <p>
-                        You can bring your own food and non-alcoholic drinks to the camping area, but alcohol must be
-                        purchased on-site.</p>
-                </div>
-                <h3>What should I bring?</h3>
-                <div>
-                    <p>
-                        Essentials include your ticket, ID, comfy clothes, sunscreen, a reusable water bottle, and camping gear if staying overnight.</p>
                 </div>
                 <h3>What items are prohibited?</h3>
                 <div>
                     <p>
-                        Prohibited items include weapons, illegal substances, glass bottles, large speakers, and outside alcohol. A full list of banned items will be provided before the festival.</p>
+                        Prohibited items include weapons, illegal substances, glass bottles, large speakers, and outside
+                        alcohol. A full list of banned items will be provided before the festival.</p>
                 </div>
                 <h3>How can I get involved?</h3>
                 <div>
                     <p>
-                        You can <a href="#">apply</a> to volunteer for free entry or to be a <a href="#">vendor</a> or <a href="#">sponsor</a>.</p>
+                        You can <a href="#">apply</a> to volunteer for free entry or to be a <a href="#">vendor</a> or
+                        <a href="#">sponsor</a>.</p>
                 </div>
             </div>
-        </div> -->
+        </div>
         <div class="gallery">
-            <img src="../assets/star-png.png" alt="" id="star1">
+            <img src="../assets/star-png.png" alt="Star" id="star1">
             <div class="gallery-content">
                 <h1 class="main-captions">Moments from 2024</h1>
                 <div class="photos">
-                    <img src="../assets/star-png.png" alt="" id="star">
+                    <img src="../assets/star-png.png" alt="Star" id="star">
 
-                    <img id="img1" src="../assets/concert-gallery.jpg">
+                    <img id="img1" src="../assets/concert-gallery.jpg" alt="Concert image">
 
                     <div id="modal1" class="modal">
                         <span class="close">&times;</span>
-                        <img class="modal-content" id="img01">
+                        <img class="modal-content" id="img01" alt="Concert full image">
                     </div>
 
-                    <img id="img2" src="../assets/couple-gallery.jpg">
+                    <img id="img2" src="../assets/couple-gallery.jpg" alt="Couple image">
 
                     <div id="modal2" class="modal">
                         <span class="close">&times;</span>
-                        <img class="modal-content" id="img02">
+                        <img class="modal-content" id="img02" alt="Couple full image">
                     </div>
 
-                    <img id="img3" src="../assets/person-gallery.jpg">
+                    <img id="img3" src="../assets/person-gallery.jpg" alt="Person image">
 
                     <div id="modal3" class="modal">
                         <span class="close">&times;</span>
-                        <img class="modal-content" id="img03">
+                        <img class="modal-content" id="img03" alt="Person full image">
                     </div>
 
-                    <img id="img4" src="../assets/stage-gallery.jpg">
+                    <img id="img4" src="../assets/stage-gallery.jpg" alt="Stage image">
                     <div id="modal4" class="modal">
                         <span class="close">&times;</span>
-                        <img class="modal-content" id="img04">
+                        <img class="modal-content" id="img04" alt="Stage full image">
                     </div>
                 </div>
             </div>
         </div>
         <div class="newsletter">
-            <img src="../assets/newsletter1-img.jpg" alt="">
+            <img src="../assets/newsletter1-img.jpg" alt="Concert image">
             <div class="newsletter-content">
                 <p class="small-headings">become a honeybee</p>
                 <h1 class="main-captions">Sign up for the newsletter!</h1>
@@ -301,15 +300,15 @@
                 <h1 class="main-captions">2025 sponsors</h1>
             </div>
             <div class="sponsor-photos">
-                <img src="../assets/star-png.png" alt="" id="star2">
-                <img src="../assets/logo1.png" alt="">
-                <img src="../assets/logo2.png" alt="">
-                <img src="../assets/logo3.png" alt="">
-                <img src="../assets/logo4.png" alt="">
-                <img src="../assets/logo5.png" alt="">
-                <img src="../assets/logo6.png" alt="">
-                <img src="../assets/logo7.png" alt="">
-                <img src="../assets/logo8.png" alt="">
+                <img src="../assets/star-png.png" alt="Star" id="star2">
+                <img src="../assets/logo1.png" alt="Arcadia Labs">
+                <img src="../assets/logo2.png" alt="Lunar Graphics">
+                <img src="../assets/logo3.png" alt="Luxe Ride">
+                <img src="../assets/logo4.png" alt="Vesuvio's Pizza">
+                <img src="../assets/logo5.png" alt="Wildroot Organics">
+                <img src="../assets/logo6.png" alt="Embrew Brew Co.">
+                <img src="../assets/logo7.png" alt="Solstice Threads">
+                <img src="../assets/logo8.png" alt="Aurora Soundworks">
             </div>
             <br>
             <a href="#" id="becomesponsor">Become a sponsor</a>
@@ -330,16 +329,16 @@
                 </div>
                 <div class="footer-grid">
                     <div class="column-one">
-                        <img src="../assets/logofooter.png" id="footer-logo" alt="">
+                        <img src="../assets/logofooter.png" id="footer-logo" alt="Logo">
                         <div class="socials">
                             <a href="#" class="social-links">
-                                <img src="../assets/icons8-facebook.svg" alt="">
+                                <img src="../assets/icons8-facebook.svg" alt="Facebook">
                             </a>
                             <a href="#" class="social-links">
-                                <img src="../assets/icons8-youtube.svg" alt="">
+                                <img src="../assets/icons8-youtube.svg" alt="YouTube">
                             </a>
                             <a href="#" class="social-links">
-                                <img src="../assets/icons8-instagram-64.svg" alt="">
+                                <img src="../assets/icons8-instagram-64.svg" alt="Instagram">
 
                             </a>
                         </div>

@@ -539,7 +539,7 @@ p {
     display: grid;
     height: 100%;
     grid-template-columns: 100%;
-    grid-template-rows: 38vh 1vh 58vh 3vh;
+    grid-template-rows: 37vh 1vh 58vh 4vh;
 }
 
 .motto {
@@ -570,7 +570,7 @@ p {
 
 .copyright {
     grid-area: 4 / 1 / 5 / 2;
-    height: 3vh;
+    height: 4vh;
     background-color: transparent;
     padding: 0px 20px;
     display: flex;
@@ -670,11 +670,58 @@ p {
     line-height: .7cm;
 }
 
-.faq{
-    height: 100vh;
+.faq {
+    height: 60vh;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
+.faq a {
+    color: black;
+    font-style: italic;
+}
+
+.faq a:hover {
+    opacity: 70%;
+    transition: 0.7s;
+}
+
+.faq-captions {
+    width: 50%;
+}
+
+#accordion {
+    padding: 25px;
+    width: 50%;
+}
+
+#accordion h3 {
+    font-weight: 100;
+    font-size: 17px;
+    padding: 9px 0px;
+    border-bottom: 1px solid rgb(148, 121, 104);
+    cursor: pointer;
+}
+
+#accordion h3:focus {
+    color: rgb(148, 121, 104);
+}
+
+#accordion div {
+    padding: 20px 0px;
+}
+
+#star3 {
+    z-index: 1;
+    position: absolute;
+    width: 100px;
+    top: 0;
+    right: 0;
+    margin-right: -45px;
+}
 
 .gallery {
     width: 100%;
@@ -869,12 +916,12 @@ p {
     position: relative;
 }
 
-#becomesponsor{
+#becomesponsor {
     color: black;
     font-style: italic;
 }
 
-#becomesponsor:hover{
+#becomesponsor:hover {
     opacity: 70%;
     transition: 0.7s;
 }
@@ -1036,8 +1083,8 @@ p {
 
 @media screen and (max-width: 450px) {
 
-    .coverpage{
-        
+    .coverpage {
+
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -1268,5 +1315,19 @@ p {
     #star2 {
         margin-top: 10px;
         margin-left: -100px;
+    }
+
+    .faq {
+        height: 100vh;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .copyright{
+        font-size: 14px;
+    }
+
+    .copyright p:nth-last-child(1){
+        display: none;
     }
 }
