@@ -494,26 +494,6 @@
     padding: 10px 20px;
 }
 
-.newsletter-content input[type=email]::-webkit-input-placeholder,
-.newsletter-content input[type=text]::-webkit-input-placeholder {
-    font-family: Louis George Cafe;
-}
-
-.newsletter-content input[type=email]:-ms-input-placeholder,
-.newsletter-content input[type=text]:-ms-input-placeholder {
-    font-family: Louis George Cafe;
-}
-
-.newsletter-content input[type=email]:-moz-placeholder,
-.newsletter-content input[type=text]:-moz-placeholder {
-    font-family: Louis George Cafe;
-}
-
-.newsletter-content input[type=email]::-moz-placeholder,
-.newsletter-content input[type=text]::-moz-placeholder {
-    font-family: Louis George Cafe;
-}
-
 .newsletter .small-headings {
     color: rgb(0, 0, 0);
 }

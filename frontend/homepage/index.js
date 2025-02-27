@@ -1,12 +1,3 @@
-// Sidebar Functions
-function openNav() {
-    document.getElementById("sidebar").style.width = "100%";
-}
-
-function closeNav() {
-    document.getElementById("sidebar").style.width = "0%";
-}
-
 // Modal Function
 function showModal(id) {
     let modal = document.getElementById(`modal${id}`);
@@ -27,25 +18,6 @@ function showModal(id) {
 // Thank You Message
 function showThankYou() {
     document.getElementById("thankYou").innerHTML = "Thank you!";
-}
-
-// Scroll To Top Button
-let button = document.getElementById("top_btn");
-
-window.onscroll = function () {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        button.classList.remove("hide");
-        button.classList.add("show");
-    } else {
-
-        button.classList.remove("show");
-        button.classList.add("hide");
-    }
-};
-
-function goToTop() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
 }
 
 // Event Listeners for Images & Button
