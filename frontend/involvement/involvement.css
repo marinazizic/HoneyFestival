@@ -1,0 +1,339 @@
+/* fonts */
+@font-face {
+    font-family: Praysire;
+    src: url(../fonts/praysire/Praysire\ Demo.otf);
+}
+
+@font-face {
+    font-family: Louis George Cafe;
+    src: url(../fonts/louis_george_caf/Louis\ George\ Cafe.ttf);
+}
+
+@font-face {
+    font-family: Louis George Cafe Bold;
+    src: url(../fonts/louis_george_caf/Louis\ George\ Cafe\ Bold.ttf);
+}
+
+/* code */
+
+.involvement-main {
+    height: 40vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#involvement-img {
+    width: 100%;
+    height: 80vh;
+    object-fit: cover;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.involvement {
+    background-color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.involvement-content {
+    padding: 100px 0px;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.small-headings {
+    margin: 0px;
+}
+
+.involvement-content h1,
+.how-it-works h1 {
+    font-family: Praysire;
+    padding: 7px 0px;
+}
+
+.involvement-content a {
+    color: black;
+    font-style: italic;
+}
+
+#update {
+    font-style: italic;
+}
+
+.arrow {
+    transition: margin-left 0.5s ease-in-out;
+}
+
+.involvement-content h1:hover .arrow {
+    margin-left: 20px;
+}
+
+input,
+textarea {
+    box-sizing: border-box;
+}
+
+form {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+textarea {
+    resize: none;
+    width: 100%;
+}
+
+form input,
+select {
+    width: 100%;
+}
+
+form div {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+form input[type=text],
+form input[type=tel],
+form input[type=email],
+textarea,
+select {
+    border: none;
+    background: white;
+    cursor: text;
+    z-index: 1;
+    border: 1px solid black;
+    outline: none;
+    padding: 10px 20px;
+    margin: 10px 0px;
+}
+
+select {
+    cursor: pointer;
+}
+
+form input[type=text]:focus,
+form input[type=tel]:focus,
+form input[type=email]:focus,
+textarea:focus,
+select:focus {
+    transition: 0.7s;
+    border: 1px solid rgba(0, 0, 0, 0.311);
+}
+
+
+form div input:nth-last-child(1) {
+    border-left: 0px solid transparent;
+}
+
+#involve-btn {
+    margin-top: 10px;
+    width: 25%;
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    font-family: Louis George Cafe;
+    padding: 12px 15px;
+    border: none;
+    background: black;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.label a:hover {
+    opacity: 70%;
+    transition: 0.6s;
+}
+
+
+#involve-btn:hover {
+    transition: 0.6s;
+    box-shadow: 6px 57px 23px rgba(0, 0, 0, 0.04), 3px 32px 20px rgba(0, 0, 0, 0.13), 2px 14px 14px rgba(0, 0, 0, 0.21), 0px 4px 8px rgba(0, 0, 0, 0.25), 0px 0px 0px rgba(0, 0, 0, 0.25);
+
+}
+
+form .accept-privacy input {
+    width: auto;
+    margin: 0px 5px;
+}
+
+.label {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 20px;
+    width: 20px;
+    background-color: white;
+    border: 1px solid black;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.label input:checked+.checkmark {
+    background-color: black;
+}
+
+.checkmark::after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+.label input:checked+.checkmark::after {
+    display: block;
+}
+
+.how-it-works {
+    background-color: transparent;
+    height: 60vh;
+    width: 70%;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#blurred2 {
+    width: 100%;
+    height: 100%;
+    max-width: 352px;
+    border-radius: 100%;
+    filter: blur(170px);
+    position: absolute;
+    z-index: 0;
+    background: rgb(143, 103, 77);
+}
+
+.how-it-works p {
+    margin: 10px 0px;
+}
+
+.how-it-works span {
+    font-style: italic;
+}
+
+.options {
+    height: 40vh;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: auto;
+}
+.options li{
+    width: 90%;
+}
+.options div {
+    height: auto;
+    width: 180px;
+    margin: 15px;
+    padding: 25px;
+    border-radius: 20px;
+    background-color: rgba(148, 121, 104, 0.075);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.options h1 {
+    font-family: Praysire;
+}
+
+.options ul {
+    width: 200px;
+    list-style-image: url(../assets/check.svg);
+}
+
+.hover {
+    cursor: default;
+    transition: transform 0.7s ease;
+}
+
+.hover:hover {
+    transform: scale(1.05);
+    background-color: rgba(148, 121, 104, 0.19);
+    transition: 0.7s;
+}
+
+@media screen and (max-width: 780px) {
+
+    .options {
+        height: 80vh;
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: 50% 50%;
+    }
+}
+
+@media screen and (max-width: 450px) {
+
+    .involvement-coverpage {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .label {
+        display: block;
+    }
+
+    #involve-btn {
+        width: 50%;
+    }
+
+    .main-captions {
+        font-size: 31px;
+    }
+
+    .options {
+        height: 180vh;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 25% 25% 25% 25%;
+    }
+}
