@@ -191,6 +191,10 @@ p {
     z-index: 1;
 }
 
+input, textarea, select{
+    font-family: Louis George Cafe;
+}
+
 .overlay {
     height: 100%;
     width: 0;
