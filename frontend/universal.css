@@ -30,6 +30,35 @@
     display: none;
 }
 
+
+input[type=email]::-webkit-input-placeholder,
+input[type=text]::-webkit-input-placeholder,
+input[type=tel]::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+    font-family: Louis George Cafe;
+}
+
+input[type=email]:-ms-input-placeholder,
+input[type=text]:-ms-input-placeholder,
+input[type=tel]:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+    font-family: Louis George Cafe;
+}
+
+input[type=email]:-moz-placeholder,
+input[type=text]:-moz-placeholder,
+input[type=tel]:-moz-placeholder,
+textarea:-moz-placeholder {
+    font-family: Louis George Cafe;
+}
+
+input[type=email]::-moz-placeholder,
+input[type=text]::-moz-placeholder,
+input[type=tel]::-moz-placeholder,
+textarea::-moz-placeholder {
+    font-family: Louis George Cafe;
+}
+
 html,
 body {
     overflow-x: hidden;
@@ -166,7 +195,7 @@ p {
     height: 100%;
     width: 0;
     position: fixed;
-    z-index: 1;
+    z-index: 999;
     left: 0;
     top: 0;
     background-color: white;
@@ -313,7 +342,8 @@ p {
     font-size: 12px;
 }
 
-.copyright a, .privacy-info span {
+.copyright a,
+.privacy-info span {
     color: black;
     text-decoration: underline;
     font-style: italic;
@@ -353,12 +383,13 @@ p {
     padding-right: 10px;
 }
 
-.social-links{
+.social-links {
     text-decoration: none;
 }
 
 .social-links:hover,
-.copyright a:hover, .privacy-info span:hover {
+.copyright a:hover,
+.privacy-info span:hover {
     transition: 0.6s;
     opacity: 70%;
 }
@@ -535,11 +566,11 @@ p {
 }
 
 @media only screen and (max-width: 320px) {
-    .copyright{
+    .copyright {
         font-size: 14px;
     }
 
-    .copyright p:nth-last-child(1){
+    .copyright p:nth-last-child(1) {
         display: none;
     }
 }
