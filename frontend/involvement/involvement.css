@@ -69,7 +69,6 @@
 
 .involvement-content a {
     color: black;
-    font-style: italic;
 }
 
 #update {
@@ -299,6 +298,112 @@ form .accept-privacy input {
     transition: 0.7s;
 }
 
+.ui-datepicker {
+    font-family: Louis George Cafe;
+    margin-top: 2px;
+    width: 256px;
+    background-color: white;
+
+}
+.openemr-calendar .ui-datepicker {
+    width: 191px;
+}
+
+.ui-datepicker table {
+    width: 256px;
+    table-layout: fixed;
+}
+
+.ui-datepicker-header {
+    background-color: #000000;
+}
+
+.ui-datepicker-title {
+    line-height: 35px;
+    margin: 0 10px;
+}
+
+.ui-datepicker-next span, .ui-datepicker-prev span {
+    display: none;
+}
+
+.ui-datepicker-prev, 
+.ui-datepicker-next {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAMCAYAAACulacQAAAAUklEQVQYlXWPwQnAMAwDj9IBOlpH8CjdJLNksuujFIJjC/w6WUioFBcqJ7sGEAD5Y/hpqLRghRv4YQlUjqXI3Kql2MixraGbEhVcDXcFUR/1egEHNuTBpFW0NgAAAABJRU5ErkJggg==') !important;
+    height: 12px;
+    width: 7px;
+    margin: 14px 12px;
+    display: inline-block;
+}
+
+.ui-datepicker-next, .ui-datepicker-prev{
+    cursor: pointer;
+}
+
+.ui-datepicker-next {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAMCAYAAABfnvydAAAAVUlEQVQYlXWQ0Q3AIAhEL07gKI7kKN2kI3Wk1w9to3KQEELucQEECOizhhTQGHFnwOdgobWx0GkZILfYBhXl0STVbPoBarbkL7ozN/F8VBBXh8uJgF5r2hrI4GHUkAAAAABJRU5ErkJggg==') !important;
+    right: 0;
+}
+
+.ui-datepicker-month, .ui-datepicker-year {
+    font-family: Louis George Cafe;
+    color: #fff;
+    font-size: 14px !important;
+    text-align: left;
+    margin-right: 17px;
+    vertical-align: text-top;
+}
+
+.ui-datepicker td {
+    width: 33px;
+    vertical-align: top;
+}
+
+.ui-datepicker .ui-state-default {
+    border-radius: 2px;
+    width: 24px;
+    line-height: 24px;
+    text-align: center !important;
+    font-family: Louis George Cafe;
+    color: #707070;
+    font-size: 13px;
+    margin: 7px 0 0 4px;
+    margin-left: 15px;
+    padding: 2px;
+}
+
+.ui-datepicker .ui-state-default.ui-state-highlight{
+    color: #000000 !important;
+}
+
+
+.ui-state-default.ui-state-hover {
+    transition: 0.6s;
+    background-color: #0000002c;
+}
+
+.ui-datepicker .ui-state-active {
+    border-color: #dcdcdc;
+    background-color: #0000002c;
+    color: black;
+}
+
+.ui-datepicker-calendar thead tr th {
+    font-family: Louis George Cafe;
+    color: black;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.ui-datepicker-close {
+    display: none;
+}
+
+.ui-datepicker thead {
+    background-color: white;
+}
+
+
 @media screen and (max-width: 780px) {
 
     .options {
@@ -328,6 +433,7 @@ form .accept-privacy input {
 
     .main-captions {
         font-size: 31px;
+        text-align: center;
     }
 
     .options {
@@ -335,5 +441,9 @@ form .accept-privacy input {
         display: grid;
         grid-template-columns: 100%;
         grid-template-rows: 25% 25% 25% 25%;
+    }
+
+    .how-it-works{
+        height: 100vh;
     }
 }
