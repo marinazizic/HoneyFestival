@@ -245,7 +245,7 @@ form .accept-privacy input {
     border-radius: 100%;
     filter: blur(170px);
     position: absolute;
-    z-index: 0;
+    z-index: -1;
     background: rgb(143, 103, 77);
 }
 
