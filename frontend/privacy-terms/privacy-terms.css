@@ -52,6 +52,11 @@
     width: 100%;
 }
 
+.info span{
+    text-decoration: underline;
+    font-style: italic;
+}
+
 .info-content{
     padding: 100px 0px;
     width: 60%;
