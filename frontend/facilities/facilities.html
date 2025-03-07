@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Honey Festival</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="../universal.css">
+    <link rel="stylesheet" href="../facilities/facilities.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+    <link rel="manifest" href="../favicon/site.webmanifest">
+</head>
+
+<body>
+    <div class="container">
+        <button onclick="goToTop()" id="top_btn"><img src="../assets/arrow.png" alt="Arrow"></button>
+        <div class="info-coverpage">
+            <div id="sidebar" class="overlay">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <div class="overlay-content">
+                    <div>
+                        <p>01</p>
+                        <a href="../homepage/index.html">Home</a>
+                    </div>
+                    <div>
+                        <p>02</p>
+                        <a href="#">Schedule</a>
+                    </div>
+
+                    <div>
+                        <p>03</p>
+                        <a href="./facilities.html">Facilites</a>
+                    </div>
+
+                    <div>
+                        <p>04</p>
+                        <a href="#">Tickets</a>
+                    </div>
+                    <div>
+                        <p>05</p>
+                        <a href="#">Merch</a>
+                    </div>
+
+                    <div>
+                        <p>06</p>
+                        <a href="#">Gallery</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="header">
+                <span onclick="openNav()" class="open"><img src="../assets/hamburger-menu.svg" alt="Menu"
+                        id="menu-img"></span>
+                <div class="accountbtn">
+                    <img src="../assets/cart.ico" alt="Shopping cart">
+                    <img src="../assets/user-icon.png" alt="User icon">
+                </div>
+            </div>
+            <img src="../assets/facilities.jpg" alt="Festival image" id="facilities-img">
+            <div class="facilities-main">
+                <h1 class="main-captions">Facilities</h1>
+            </div>
+        </div>
+        <div class="facilities">
+            <div class="facilities-content">
+                <img src="../assets/star-png.png" alt="Star" id="star">
+                <h3 class="small-headings">everyone is welcome</h3>
+                <h1>Visitors with disabilities</h1>
+                <p>
+                    Honey is dedicated to ensuring the festival is accessible for visitors with disabilities, with
+                    significant efforts made to accommodate their needs:
+                </p>
+                <ul id="list">
+                    <li>If you have a valid blue parking card, you will find parking spaces near the Main Entrance</li>
+                    <li>At the Main Entrance, there is a dedicated elevator for visitors with disabilities, allow two
+                        companions (with a registered Honey ticket) to accompany them.</li>
+                    <li>Guidance dogs are welcome on the festival grounds, as long as they're clearly identifiable.</li>
+                    <li>Adapted toilets are available throughout the festival site.</li>
+                    <li>The festival grounds feature wooden floors and concrete paths to ensure smooth accesability. To
+                        access the Mainstage or The Nectar Lounge, simply speak to one of the stewards or volunteers,
+                        who will assist with escorting you.</li>
+                </ul>
+                <p id="par">If you have any additional questions regarding accessibility, feel free to contact
+                    <span>honey@honey.com</span>
+                </p>
+                <div class="facility-grid">
+                    <div class="first-facility">
+                        <div class="blurred-img"></div>
+                        <img src="../assets/main-stage.jpg" alt="Main stage" class="facility-imgs">
+                        <h3 class="small-headings">the center of the hive</h3>
+                        <h1>Main Stage</h1>
+                        <p>The heart of the festival, where energy electrifies the air and crowds gather to experience
+                            unforgettable performances. With a stunning backdrop of visuals and lights, this is where
+                            the best of live music, art, and culture collide, creating a space for everyone to dance,
+                            sing, and lose themselves in the rhythm of the moment.</p>
+                    </div>
+                    <div class="second-facility">
+                        <div class="blurred-img"></div>
+                        <img src="../assets/camping-zone.jpg" alt="Camping zone" class="facility-imgs">
+                        <h3 class="small-headings">where the bees sleep</h3>
+                        <h1>Camping Zone</h1>
+                        <p>A cozy, laid-back space where Honeybees can set up camp and unwind under the stars. With
+                            designated areas for tents, chill-out zones, and communal fire pits, it’s the perfect spot
+                            to relax, connect with fellow Honeybees, and share stories from the day’s adventures.</p>
+                    </div>
+                    <div class="third-facility">
+                        <div class="blurred-img"></div>
+                        <img src="../assets/chill-zone.jpg" alt="Chill zone" class="facility-imgs">
+                        <h3 class="small-headings">where the bees chill</h3>
+                        <h1>The Nectar Lounge</h1>
+                        <p>A beautifully decorated tent with hammocks, cushions, and soft lighting where Honeybees can
+                            rest, meditate, or just vibe out to ambient music.</p>
+                    </div>
+                    <div class="fourth-facility">
+                        <div class="blurred-img"></div>
+                        <img src="../assets/info-zone.jpg" alt="Info zone" class="facility-imgs">
+                        <h3 class="small-headings">where the bees hang out</h3>
+                        <h1>The Nectar Lounge</h1>
+                        <p>An interactive hang out point of The Hive where people can meet up, charge phones, find lost
+                            items,
+                            and ask questions. There is also a bulletin board for messages. You can chill, hang out,
+                            network.
+                        </p>
+                    </div>
+                    <div class="fifth-facility">
+                        <div class="blurred-img"></div>
+                        <img src="../assets/food-stall.jpg" alt="Food court" class="facility-imgs">
+                        <h3 class="small-headings">where the bees eat</h3>
+                        <h1>The Buzz Boost</h1>
+                        <p>A vibrant food haven offering a mouthwatering variety of flavors from local vendors and
+                            international
+                            cuisines. Whether you're craving something savory, sweet, or a refreshing drink, this is the
+                            place
+                            to satisfy your hunger and fuel up for the next adventure. With a lively atmosphere,
+                            communal
+                            seating, and food trucks lining the area, it's where you can refuel, relax, and enjoy
+                            Honey's
+                            flavors.</p>
+                    </div>
+                    <div class="sixth-facility">
+                        <div class="blurred-img"></div>
+                        <img src="../assets/workshops.jpg" alt="Workshop zone" class="facility-imgs">
+                        <h3 class="small-headings">where the bees have fun</h3>
+                        <h1>The Pollination Station</h1>
+                        <p>A lively zone where imagination takes the lead and hands get messy. From pottery to digital
+                            art, the
+                            Pollination Stations offers a variety of workshops where you can learn new skills, express
+                            your
+                            creativity, and leave with something you’ve made. Whether you're a beginner or a seasoned
+                            artist,
+                            it’s the perfect space to dive into your artistic side and take home a piece of Honey's
+                            magic.</p>
+                    </div>
+                </div>
+                <img src="../assets/star-png.png" alt="Star" id="star1">
+
+                <br>
+                <br>
+                <h3 class="small-headings">your private things</h3>
+                <h1>Toilets</h1>
+                <p>Use of the toilets is free of charge at Honey. There are wooden floors in the toilets area, which are
+                    cleaned regularly.
+                    There are special Honeydrops of Freshness at the festival site that allow you to freshen up.
+                </p>
+                <p>
+                    It is strictly prohibited to urinate in public. When caught urinating in public you will be removed
+                    from the festival grounds.</p>
+                <br>
+                <br>
+                <h3 class="small-headings">to help you</h3>
+                <h1>First aid</h1>
+                <p>During the opening hours of the festival a first aid team of United with Care and a doctor will be
+                    permanently present at Tomorrowland.
+                </p>
+                <p>
+                    If you need to bring medication to the festival, please make sure you carry a doctor’s certificate
+                    with you to show at the entrance. </p>
+                <br>
+                <br>
+                <h3 class="small-headings">phone needs</h3>
+                <h1>Charging phone stations</h1>
+                <p>
+                    It is possible to charge your phone at both Tomorrowland at one of the Charge your Phone stations.
+                    This service is not for free.
+                </p>
+                <p>Charge your phone so you can reach your friends and share your experience on social media.
+                </p>
+            </div>
+        </div>
+        <div class="footer">
+            <video id="background-videoo" autoplay loop muted>
+                <source src="../assets/bg-video1.mp4" type="video/mp4">
+            </video>
+            <div class="footer-content">
+                <div class="motto">
+                    <h1 class="main-heading" id="footer-heading">
+                        A Hive of Music, Art, and Energy.
+                    </h1>
+                </div>
+
+                <div class="hr">
+                    <hr>
+                </div>
+                <div class="footer-grid">
+                    <div class="column-one">
+                        <img src="../assets/logofooter.png" id="footer-logo" alt="Logo">
+                        <div class="socials">
+                            <a href="https://www.facebook.com/" class="social-links">
+                                <img src="../assets/icons8-facebook.svg" alt="Facebook">
+                            </a>
+                            <a href="https://www.youtube.com/" class="social-links">
+                                <img src="../assets/icons8-youtube.svg" alt="YouTube">
+                            </a>
+                            <a href="https://www.instagram.com/" class="social-links">
+                                <img src="../assets/icons8-instagram-64.svg" alt="Instagram">
+
+                            </a>
+                        </div>
+                        <a href="#" id="ctn-btn">Contact us</a>
+                    </div>
+                    <div class="column-two">
+                        <ul>
+                            <li><a href="../homepage/index.html">General</a></li>
+                            <li><a href="">Schedule</a></li>
+                            <li><a href="">Facilities</a></li>
+                            <li><a href="">Tickets</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="">Merch</a></li>
+                            <li><a href="../involvement/get-involved.html">Join us</a></li>
+                            <li><a href="">Contact</a></li>
+                            <li><a href="../privacy-terms/privacy.html">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    <div class="column-three">
+                        <p>Our goal is to create an experience that exceeds expectations, inspires people, and
+                            brings
+                            moments of joy with every interaction. The Honey Festival is more than just an event –
+                            it’s
+                            a lifestyle, a source of energy, and a trusted space for those seeking to refresh their
+                            body, mind, and soul.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="copyright">
+                    <p>Copyright – All rights reserved 2025.</p>
+                    <a href="../privacy-terms/terms.html">Terms & conditions</a>
+                    <a href="../privacy-terms/privacy.html">Privacy policy</a>
+                    <p>Made with ♡ by Marina Žižić</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script src="../universal.js"></script>
