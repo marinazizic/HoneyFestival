@@ -40,8 +40,7 @@
 }
 
 .login {
-    background-color: white;
-    min-height: 80vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -54,6 +53,8 @@
     font-style: italic;
 }
 
+
+
 .login-content {
     padding: 100px 0px;
     width: 100%;
@@ -64,6 +65,22 @@
     position: relative;
 }
 
+
+.form,
+.form1 {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form1 {
+    padding: 50px;
+}
+
+
 #star {
     z-index: 1;
     position: absolute;
@@ -73,7 +90,7 @@
     margin-left: 125px;
 }
 
-.login-content a{
+.login-content a {
     color: black;
 }
 
@@ -92,21 +109,35 @@ form {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    width: 60%;
+}
+
+.accept-privacy {
+    width: 50%;
 }
 
 form input,
 select {
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.form1 input,
+select {
     width: 100%;
+    box-sizing: border-box;
 }
 
 form div {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
     width: 100%;
 }
 
-form input {
+form input,
+select {
+    width: 50%;
     border: none;
     background: white;
     cursor: text;
@@ -115,6 +146,10 @@ form input {
     outline: none;
     padding: 10px 20px;
     margin: 10px 0px;
+}
+
+.names {
+    width: 50%;
 }
 
 form input:focus {
@@ -151,9 +186,13 @@ form .accept-privacy input {
     align-items: center;
     position: relative;
     padding-left: 35px;
-    margin-bottom: 12px;
     cursor: pointer;
     user-select: none;
+}
+
+
+.label {
+    display: block;
 }
 
 .label input {
@@ -179,6 +218,8 @@ form .accept-privacy input {
     background-color: black;
 }
 
+
+
 .checkmark::after {
     content: "";
     position: absolute;
@@ -198,6 +239,99 @@ form .accept-privacy input {
 
 form a {
     color: black;
+    font-style: italic;
+}
+
+.login a:hover {
+    opacity: 70%;
+    transition: 0.6s;
+}
+
+#bg-img {
+    position: absolute;
+    z-index: -1;
+    object-fit: contain;
+
+}
+
+.tg {
+    position: relative;
+}
+
+.tg a{
+    font-style: italic;
+}
+
+.short-info {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 50px;
+    align-items: center;
+}
+
+.short-info img {
+    width: 25px;
+    padding: 20px;
+    background-color: black;
+    margin-right: 25px;
+}
+
+.short-info h2 {
+    text-transform: capitalize;
+    font-size: 22px;
+    font-weight: normal;
+}
+
+
+.dashboard {
+    min-height: 100vh;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 30px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#tabs {
+    display: flex;
+    flex-direction: row;
+}
+
+.dashboard-info{
+    padding-bottom: 50px;
+}
+
+#spacer{
+    height: 120px;
+    /* change height when added funcionality */
+}
+
+#tabs ul {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+    border-right: 1px solid black;
+}
+
+#tabs ul li a {
+    font-style: italic;
+}
+
+#tabs ul li {
+    list-style: none;
+    padding: 10px 5px;
+    vertical-align: middle;
+}
+
+#tabs ul li img{
+    width: 15px;
+    margin-right: 10px;
+}
+
+.all-tabs {
+    width: 70%;
 }
 
 @media screen and (max-width: 450px) {
@@ -209,7 +343,9 @@ form a {
         align-items: center;
     }
 
-    .label {
-        display: block;
+    .form,
+    .form1 {
+        background-color: rgba(255, 255, 255, 0.5);
+        margin: 0px 25px;
     }
 }

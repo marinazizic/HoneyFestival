@@ -6,21 +6,37 @@ $error = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = trim($_POST["username"]);
+    $f_name = trim($_POST["f_name"]);
+    $l_name = trim($_POST["l_name"]);
+    $gender = trim($_POST["gender"]);
     $email = trim($_POST["email"]);
     $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
-    $stmt = $conn->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
-    $stmt->bind_param("sss", $username, $email, $password);
+    $check_email_stmt = $conn->prepare("SELECT id FROM users WHERE email = ?");
+    $check_email_stmt->bind_param("s", $email);
+    $check_email_stmt->execute();
+    $check_email_stmt->store_result();
 
-    if ($stmt->execute()) {
-        $_SESSION["username"] = $username;
-        header("Location: welcome.php");
-        exit();
+    if ($check_email_stmt->num_rows > 0) {
+        $error = "An account with this email already exists.";
     } else {
-        $error = "Error: " . $stmt->error;
+        $stmt = $conn->prepare("INSERT INTO users (username, f_name, l_name, gender, email, password) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssssss", $username, $f_name, $l_name, $gender, $email, $password);
+
+        if ($stmt->execute()) {
+            $_SESSION["username"] = $username;
+            $_SESSION["f_name"] = $f_name;
+            $_SESSION["l_name"] = $l_name;
+            header("Location: welcome.php");
+            exit();
+        } else {
+            $error = "Error: " . $stmt->error;
+        }
     }
 }
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -42,85 +58,96 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
     <div class="container">
-        <button onclick="goToTop()" id="top_btn"><img src="../assets/arrow.png" alt="Arrow"></button>
-        <div class="login-coverpage">
-            <div id="sidebar" class="overlay">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <div class="overlay-content">
-                    <div>
-                        <p>01</p>
-                        <a href="../homepage/index.html">Home</a>
-                    </div>
-                    <div>
-                        <p>02</p>
-                        <a href="#">Schedule</a>
-                    </div>
+        <div class="tg">
+            <img src="../assets/cover-img.jpg" alt="Festival image" id="bg-img">
+            <button onclick="goToTop()" id="top_btn"><img src="../assets/arrow.png" alt="Arrow"></button>
+            <div class="login-coverpage">
+                <div id="sidebar" class="overlay">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <div class="overlay-content">
+                        <div>
+                            <p>01</p>
+                            <a href="../homepage/index.html">Home</a>
+                        </div>
+                        <div>
+                            <p>02</p>
+                            <a href="#">Schedule</a>
+                        </div>
 
-                    <div>
-                        <p>03</p>
-                        <a href="../facilities/facilities.html">Facilites</a>
-                    </div>
+                        <div>
+                            <p>03</p>
+                            <a href="../facilities/facilities.html">Facilites</a>
+                        </div>
 
-                    <div>
-                        <p>04</p>
-                        <a href="#">Tickets</a>
-                    </div>
-                    <div>
-                        <p>05</p>
-                        <a href="#">Merch</a>
-                    </div>
+                        <div>
+                            <p>04</p>
+                            <a href="#">Tickets</a>
+                        </div>
+                        <div>
+                            <p>05</p>
+                            <a href="#">Merch</a>
+                        </div>
 
-                    <div>
-                        <p>06</p>
-                        <a href="#">Gallery</a>
+                        <div>
+                            <p>06</p>
+                            <a href="#">Gallery</a>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="header">
-                <span onclick="openNav()" class="open"><img src="../assets/hamburger-menu.svg" alt="Menu"
-                        id="menu-img"></span>
-                <div class="accountbtn">
-                <a href="../cart/cart.php">
-                        <img src="../assets/cart.ico" alt="Shopping cart">
-                    </a>
-                    <a href="welcome.php">
-                        <img src="../assets/user-icon.png" alt="User icon">
-                    </a>
+                <div class="header">
+                    <span onclick="openNav()" class="open"><img src="../assets/hamburger-menu.svg" alt="Menu"
+                            id="menu-img"></span>
+                    <div class="accountbtn">
+                        <a href="../cart/cart.php">
+                            <img src="../assets/cart.ico" alt="Shopping cart">
+                        </a>
+                        <a href="welcome.php">
+                            <img src="../assets/user-icon.png" alt="User icon">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="login">
+                <div class="login-content">
+
+                    <div class="form">
+                        <h3 class="small-headings">make an account</h3>
+                        <h1 class="main-headings">Register</h1>
+
+                        <form method="POST">
+                            <input type="text" name="username" placeholder="Username" required>
+                            <div class="names">
+                                <input type="text" name="f_name" placeholder="First name" required>
+                                <input type="text" name="l_name" placeholder="Last name" required>
+                            </div>
+                            <input type="email" name="email" placeholder="Email" required>
+                            <select name="gender" id="" required>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                            <input type="password" name="password" placeholder="Password" required>
+                            <div class="accept-privacy">
+                                <label class="label">
+                                    <input type="checkbox" name="" id="" required>
+                                    <span class="checkmark"></span>
+                                    I agree to the <a href="../privacy-terms/terms.html">Terms of Service</a> and <a
+                                        href="../privacy-terms/privacy.html">Privacy Policy</a> of Honey Festival
+                                </label>
+                            </div>
+                            <br>
+                            <p><?= $error ?></p>
+                            <button type="submit" id="acc-btn">Register</button>
+                        </form>
+                        <br>
+                        <a href="login.php">Already have an account? Login</a>
+                        <br>
+                    </div>
+
                 </div>
             </div>
-            <img src="../assets/cover-img.jpg" alt="Festival image" id="login-img">
-            <div class="login-main">
-                <h1 class="main-captions">Register</h1>
-            </div>
-
         </div>
-        <div class="login">
-            <div class="login-content">
-                <img src="../assets/star-png.png" alt="Star" id="star">
-
-
-                <form method="POST">
-                    <input type="text" name="username" placeholder="Username" required><br>
-                    <input type="email" name="email" placeholder="Email" required><br>
-                    <input type="password" name="password" placeholder="Password" required><br>
-                    <div class="accept-privacy">
-                        <label class="label">
-                            <input type="checkbox" name="" id="" required>
-                            <span class="checkmark"></span>
-                            I agree to the <a href="../privacy-terms/terms.html">Terms of Service</a> and <a
-                                href="../privacy-terms/privacy.html">Privacy Policy</a> of Honey Festival
-                        </label>
-                    </div>
-                    <br>
-                    <button type="submit" id="acc-btn">Register</button>
-                </form>
-                <br>
-                <a href="login.php">Already have an account? Login</a>
-                <br>
-            </div>
-        </div>
-
         <div class="footer">
             <video id="background-videoo" autoplay loop muted>
                 <source src="../assets/bg-video1.mp4" type="video/mp4">
