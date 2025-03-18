@@ -1,6 +1,7 @@
 <?php
 session_start();
 session_destroy();
-header("Location: login.php");
+echo "<script type='text/javascript'>window.location.href = '../homepage/index.html';</script>";
+
 exit();
 ?>

@@ -17,7 +17,7 @@ if (!isset($_SESSION["user_id"])) {
 <body>
 
 <h2>Welcome to Your Cart</h2>
-
+<a href="../homepage/index.html">go</a>
 <a href="../login/logout.php">Logout</a>
 
 </body>
