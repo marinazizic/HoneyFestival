@@ -1,0 +1,507 @@
+/* fonts */
+@font-face {
+    font-family: Praysire;
+    src: url(../fonts/praysire/Praysire\ Demo.otf);
+}
+
+@font-face {
+    font-family: Louis George Cafe;
+    src: url(../fonts/louis_george_caf/Louis\ George\ Cafe.ttf);
+}
+
+@font-face {
+    font-family: Louis George Cafe Bold;
+    src: url(../fonts/louis_george_caf/Louis\ George\ Cafe\ Bold.ttf);
+}
+
+/* code */
+
+.login-main {
+    height: 40vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#login-img {
+    z-index: -1;
+    width: 100%;
+    height: 70vh;
+    object-fit: cover;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.login {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.info span {
+    text-decoration: underline;
+    font-style: italic;
+}
+
+
+
+.login-content {
+    padding: 100px 0px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+
+.form,
+.form1 {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart {
+
+    min-height: auto;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 30px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form1 {
+    padding: 50px;
+}
+
+
+#star {
+    z-index: 1;
+    position: absolute;
+    width: 100px;
+    top: 0;
+    left: 0;
+    margin-left: 125px;
+}
+
+.login-content a {
+    color: black;
+}
+
+.small-headings {
+    margin: 0px;
+}
+
+.login-content h1 {
+    font-family: Praysire;
+    padding: 7px 0px;
+}
+
+.forms {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accept-privacy {
+    width: 50%;
+}
+
+.forms input,
+select {
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.form1 input,
+select {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.forms div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.forms input,
+select {
+    width: 50%;
+    border: none;
+    background: white;
+    cursor: text;
+    z-index: 1;
+    border: 1px solid black;
+    outline: none;
+    padding: 10px 20px;
+    margin: 10px 0px;
+}
+
+.names {
+    width: 50%;
+}
+
+.forms input:focus {
+    transition: 0.7s;
+    border: 1px solid rgba(0, 0, 0, 0.311);
+}
+
+#acc-btn {
+    margin-top: 10px;
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    font-family: Louis George Cafe;
+    padding: 12px 15px;
+    border: none;
+    background: black;
+    cursor: pointer;
+    z-index: 1;
+}
+
+#acc-btn:hover {
+    transition: 0.6s;
+    box-shadow: 6px 57px 23px rgba(0, 0, 0, 0.04), 3px 32px 20px rgba(0, 0, 0, 0.13), 2px 14px 14px rgba(0, 0, 0, 0.21), 0px 4px 8px rgba(0, 0, 0, 0.25), 0px 0px 0px rgba(0, 0, 0, 0.25);
+
+}
+
+.forms .accept-privacy input {
+    width: auto;
+    margin: 0px 5px;
+}
+
+.label {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    user-select: none;
+}
+
+
+.label {
+    display: block;
+}
+
+.label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 20px;
+    width: 20px;
+    background-color: white;
+    border: 1px solid black;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.label input:checked+.checkmark {
+    background-color: black;
+}
+
+
+
+.checkmark::after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+.label input:checked+.checkmark::after {
+    display: block;
+}
+
+.forms a {
+    color: black;
+    font-style: italic;
+}
+
+.login a:hover {
+    opacity: 70%;
+    transition: 0.6s;
+}
+
+#bg-img {
+    position: absolute;
+    z-index: -1;
+    object-fit: contain;
+
+}
+
+.tg {
+    position: relative;
+}
+
+.login a {
+    font-style: italic;
+}
+
+.short-info {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 50px;
+    align-items: center;
+}
+
+/* .short-info img {
+    width: 25px;
+    padding: 20px;
+    background-color: black;
+    margin-right: 25px;
+} */
+
+.short-info h2 {
+    text-transform: capitalize;
+    font-size: 22px;
+    font-weight: normal;
+}
+
+
+.dashboard {
+    min-height: auto;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 30px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#tabs {
+    display: flex;
+    flex-direction: row;
+}
+
+.dashboard-info,
+.cart-headings {
+    padding-bottom: 50px;
+}
+
+#spacer {
+    height: 120px;
+    /* change height when added funcionality */
+}
+
+#tabs ul {
+    width: 7%;
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+    border-right: 1px solid black;
+}
+
+#tabs ul li a {
+    font-style: italic;
+}
+
+#tabs ul li {
+    list-style: none;
+    padding: 10px 5px;
+    vertical-align: middle;
+}
+
+#tabs ul li img, #mobile-user-icon{
+    width: 15px;
+    margin-right: 10px;
+}
+
+.all-tabs {
+    width: 100%;
+    margin-left: 30px;
+}
+
+.tab-heading {
+    font-family: Praysire;
+}
+
+
+.account-banner {
+    padding: 40px 0px;
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.account-banner div img {
+    padding: 50px;
+    background-color: white;
+    opacity: 70%;
+}
+
+.account-banner div p,
+.tiny-headings {
+    font-size: 13px;
+    opacity: 70%;
+}
+
+#acc-id {
+    font-size: 18px;
+}
+
+.account-p {
+    text-decoration: underline;
+    font-style: italic;
+}
+
+.account-grid,
+.account-grid1 {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto auto auto;
+}
+
+.account-grid div {
+    padding: 10px 0px;
+}
+
+#tabs-6 input[type=text],
+#tabs-6 input[type=email],
+select {
+    border: none;
+    background: white;
+    cursor: text;
+    z-index: 1;
+    border: 1px solid black;
+    outline: none;
+    padding: 10px 20px;
+    margin: 10px 0px;
+    width: 200px;
+
+}
+
+.edit-details {
+    margin-top: 30px;
+}
+
+#country,
+#gender,
+#day,
+#month,
+#year {
+    cursor: pointer;
+    box-sizing: content-box;
+
+}
+
+#tabs-6 input[type=text]:focus,
+#tabs-6 input[type=tel]:focus,
+#tabs-6 input[type=email]:focus,
+select:focus {
+    transition: 0.7s;
+    border: 1px solid rgba(0, 0, 0, 0.311);
+}
+
+#select-birthday {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+#edit-btn{
+    margin-top: 30px;
+}
+
+@media screen and (max-width: 450px) {
+
+    .login-coverpage {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .form,
+    .form1,
+    .cart {
+        background-color: rgba(255, 255, 255, 0.5);
+        margin: 0px 25px;
+    }
+
+    #tabs ul{
+        margin: 10px;
+        padding: 0;
+        width: 20%;
+    }
+
+    #tabs ul li {
+        padding: 10px 0px;
+        margin-right: 5px;
+    }
+
+    .account-banner {
+        width: 100%;
+    }
+    .all-tabs {
+        margin-left: 8px;
+        width: 80%;
+    }
+
+    #tabs-6 input[type=text], #tabs-6 input[type=email], select {
+        width: 160px;
+    }
+
+    .account-grid{
+        display: grid;
+        grid-template-columns: 60% 40%;
+        grid-template-rows: auto auto auto;
+    }
+
+    .account-grid p{
+        word-wrap: break-word;
+    }
+
+    .account-grid1{
+        display: grid;
+        grid-template-columns:100%;
+        grid-template-rows: repeat(6, auto);
+    }
+    #day, #month, #year {
+        width: 33%;
+    }
+}
