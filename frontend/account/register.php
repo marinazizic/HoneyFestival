@@ -139,19 +139,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <h3 class="small-headings">make an account</h3>
                         <h1 class="main-headings">Register</h1>
 
-                        <form method="POST" class="forms">
-                            <input type="text" name="username" placeholder="Username" required>
+                        <form method="POST" class="forms" id="r-form">
+                            <input type="text" class="register-input" name="username" placeholder="Username" required>
                             <div class="names">
-                                <input type="text" name="f_name" placeholder="First name" required>
+                                <input type="text" name="f_name" placeholder="First name"
+                                    id="first-input" required>
                                 <input type="text" name="l_name" placeholder="Last name" required>
                             </div>
-                            <input type="email" name="email" placeholder="Email" required>
-                            <select name="gender" id="" required>
+                            <input type="email" name="email" class="register-input" placeholder="Email" required>
+                            <select name="gender" id="" class="register-input" class="r-select" required>
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
                                 <option value="Non-binary">Non-binary</option>
                             </select>
-                            <input type="password" name="password" placeholder="Password" required>
+                            <input type="password" class="register-input" name="password" placeholder="Password" required>
                             <div class="accept-privacy">
                                 <label class="label">
                                     <input type="checkbox" name="" id="" required>

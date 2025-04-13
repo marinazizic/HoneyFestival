@@ -128,15 +128,10 @@
 
 .forms input,
 select {
-    width: 50%;
-    box-sizing: border-box;
+    width: 200px;
+    box-sizing: content-box;
 }
 
-.form1 input,
-select {
-    width: 100%;
-    box-sizing: border-box;
-}
 
 .forms div {
     display: flex;
@@ -148,7 +143,6 @@ select {
 
 .forms input,
 select {
-    width: 50%;
     border: none;
     background: white;
     cursor: text;
@@ -157,10 +151,6 @@ select {
     outline: none;
     padding: 10px 20px;
     margin: 10px 0px;
-}
-
-.names {
-    width: 50%;
 }
 
 .forms input:focus {
@@ -259,9 +249,10 @@ select {
 }
 
 #bg-img {
+    height: 200vh;
     position: absolute;
     z-index: -1;
-    object-fit: contain;
+    object-fit:contain;
 
 }
 
@@ -297,7 +288,7 @@ select {
 .dashboard {
     min-height: auto;
     background-color: rgba(255, 255, 255, 0.7);
-    padding: 30px;
+    padding: 40px 30px 60px 30px;
     width: 80%;
     display: flex;
     flex-direction: column;
@@ -318,7 +309,7 @@ select {
 
 .dashboard-info,
 .cart-headings {
-    padding-bottom: 50px;
+    padding-bottom: 30px;
 }
 
 #spacer {
@@ -347,6 +338,7 @@ select {
 #tabs ul li img, #mobile-user-icon{
     width: 15px;
     margin-right: 10px;
+    filter: brightness(0%);
 }
 
 .all-tabs {
@@ -402,7 +394,7 @@ select {
 
 #tabs-6 input[type=text],
 #tabs-6 input[type=email],
-select {
+select, #tabs-6 input[type=password]  {
     border: none;
     background: white;
     cursor: text;
@@ -423,7 +415,7 @@ select {
 #gender,
 #day,
 #month,
-#year {
+#year, .r-select {
     cursor: pointer;
     box-sizing: content-box;
 
@@ -443,10 +435,41 @@ select:focus {
     flex-direction: row;
 }
 
-#edit-btn{
-    margin-top: 30px;
+#edit-btn, #pass-btn{
+    margin-top: 15px;
 }
 
+#r-form .register-input {
+    width: 200px;
+    box-sizing: content-box;
+}
+
+.forms div input{
+    width: 80px;
+}
+
+#change-form{
+    margin-bottom: 30px;
+}
+
+#ch-h2{
+    padding-bottom: 15px;
+}
+
+
+#first-input{
+    border-right-width: 0;
+}
+
+.pass-form{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+
+#edit-btn, #pass-btn{
+    width: 145px;
+}
 @media screen and (max-width: 450px) {
 
     .login-coverpage {
@@ -503,5 +526,9 @@ select:focus {
     }
     #day, #month, #year {
         width: 33%;
+    }
+
+    .forms div{
+        flex-direction: column;
     }
 }

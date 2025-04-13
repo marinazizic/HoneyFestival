@@ -80,6 +80,42 @@ if (isset($_POST["send-changes"])) {
         }
     }
 }
+
+$password_error = "";
+
+if (isset($_POST["change-password"])) {
+    $current_password = $_POST["current_password"];
+    $new_password = $_POST["new_password"];
+    $confirm_password = $_POST["confirm_password"];
+
+    $stmt = $conn->prepare("SELECT password FROM users WHERE username = ?");
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $stmt->bind_result($hashed_password);
+    $stmt->fetch();
+    $stmt->close();
+
+    if (!password_verify($current_password, $hashed_password)) {
+        $password_error = "Incorrect current password.";
+    } elseif ($new_password !== $confirm_password) {
+        $password_error = "New passwords do not match.";
+    } elseif (strlen($new_password) < 6) {
+        $password_error = "New password must be at least 6 characters.";
+    } else {
+        $new_hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
+        $updatestmt = $conn->prepare("UPDATE users SET password = ? WHERE username = ?");
+        $updatestmt->bind_param("ss", $new_hashed_password, $username);
+
+        if ($updatestmt->execute()) {
+            $password_error = "Password successfully changed!";
+        } else {
+            $password_error = "Error updating password: " . $updatestmt->error;
+        }
+
+        $updatestmt->close();
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -165,7 +201,7 @@ if (isset($_POST["send-changes"])) {
                                 <li>
                                     <div class="short-info">
                                         <a href="#tabs-1">
-                                            <img src="../assets/black-user-icon.png" alt="User icon" id="mobile-user-icon">
+                                            <img src="../assets/user-icon.png" alt="User icon" id="mobile-user-icon">
                                         </a>
                                     </div>
                                 </li>
@@ -536,6 +572,15 @@ if (isset($_POST["send-changes"])) {
                                     <p><?= $error ?></p>
 
                                 </form>
+                                <h2 class="tab-heading" id="ch-h2">Change My Password</h2>
+                                <form method="POST" class="pass-form">
+                                    <input type="password" name="current_password" placeholder="Current Password" required>
+                                    <input type="password" name="new_password" placeholder="New Password" required>
+                                    <input type="password" name="confirm_password" placeholder="Confirm New Password" required>
+                                    <input type="submit" name="change-password" id="pass-btn" value="Change Password">
+                                    <p><?= $password_error ?></p>
+                                </form>
+
 
                             </div>
                         </div>
