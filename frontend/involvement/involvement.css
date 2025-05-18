@@ -137,7 +137,7 @@ form input[type=email]:focus,
 textarea:focus,
 select:focus {
     transition: 0.7s;
-    border: 1px solid rgba(0, 0, 0, 0.311);
+    border: 1px solid white;
 }
 
 
@@ -164,7 +164,7 @@ form div input:nth-last-child(1) {
     transition: 0.6s;
 }
 
-.label .a{
+.label .a {
     font-style: italic;
 }
 
@@ -172,7 +172,6 @@ form div input:nth-last-child(1) {
 #involve-btn:hover {
     transition: 0.6s;
     box-shadow: 6px 57px 23px rgba(0, 0, 0, 0.04), 3px 32px 20px rgba(0, 0, 0, 0.13), 2px 14px 14px rgba(0, 0, 0, 0.21), 0px 4px 8px rgba(0, 0, 0, 0.25), 0px 0px 0px rgba(0, 0, 0, 0.25);
-
 }
 
 form .accept-privacy input {
@@ -267,12 +266,16 @@ form .accept-privacy input {
     grid-template-columns: 25% 25% 25% 25%;
     grid-template-rows: auto;
 }
-.options li{
+
+.options li {
     width: 90%;
+    line-height: 1.5;
+    font-size: 15px;
 }
+
 .options div {
+    width: 210px;
     height: auto;
-    width: 180px;
     margin: 15px;
     padding: 25px;
     border-radius: 20px;
@@ -309,6 +312,7 @@ form .accept-privacy input {
     background-color: white;
 
 }
+
 .openemr-calendar .ui-datepicker {
     width: 191px;
 }
@@ -327,11 +331,12 @@ form .accept-privacy input {
     margin: 0 10px;
 }
 
-.ui-datepicker-next span, .ui-datepicker-prev span {
+.ui-datepicker-next span,
+.ui-datepicker-prev span {
     display: none;
 }
 
-.ui-datepicker-prev, 
+.ui-datepicker-prev,
 .ui-datepicker-next {
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAMCAYAAACulacQAAAAUklEQVQYlXWPwQnAMAwDj9IBOlpH8CjdJLNksuujFIJjC/w6WUioFBcqJ7sGEAD5Y/hpqLRghRv4YQlUjqXI3Kql2MixraGbEhVcDXcFUR/1egEHNuTBpFW0NgAAAABJRU5ErkJggg==') !important;
     height: 12px;
@@ -340,7 +345,8 @@ form .accept-privacy input {
     display: inline-block;
 }
 
-.ui-datepicker-next, .ui-datepicker-prev{
+.ui-datepicker-next,
+.ui-datepicker-prev {
     cursor: pointer;
 }
 
@@ -349,7 +355,8 @@ form .accept-privacy input {
     right: 0;
 }
 
-.ui-datepicker-month, .ui-datepicker-year {
+.ui-datepicker-month,
+.ui-datepicker-year {
     font-family: Louis George Cafe;
     color: #fff;
     font-size: 14px !important;
@@ -376,7 +383,7 @@ form .accept-privacy input {
     padding: 2px;
 }
 
-.ui-datepicker .ui-state-default.ui-state-highlight{
+.ui-datepicker .ui-state-default.ui-state-highlight {
     color: #000000 !important;
 }
 
@@ -411,7 +418,7 @@ form .accept-privacy input {
 @media screen and (max-width: 780px) {
 
     .options {
-        height: 80vh;
+        height: 100vh;
         display: grid;
         grid-template-columns: auto auto;
         grid-template-rows: 50% 50%;
@@ -441,13 +448,18 @@ form .accept-privacy input {
     }
 
     .options {
-        height: 180vh;
+        height: 190vh;
         display: grid;
         grid-template-columns: 100%;
         grid-template-rows: 25% 25% 25% 25%;
     }
 
-    .how-it-works{
+    .how-it-works {
         height: 100vh;
     }
+
+    .options div {
+        height: 220px;
+    }
+
 }

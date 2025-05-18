@@ -178,7 +178,10 @@ p {
 input::file-selector-button:hover,
 #top_btn:hover,
 #edit-btn:hover,
-#pass-btn:hover {
+#pass-btn:hover,
+.cart-item button:hover,
+.payment button:hover,
+promo-code-box:hover{
     transition: 0.6s;
     box-shadow: 6px 57px 23px rgba(255, 255, 255, 0.04), 3px 32px 20px rgba(255, 255, 255, 0.13), 2px 14px 14px rgba(255, 255, 255, 0.21), 0px 4px 8px rgba(255, 255, 255, 0.25), 0px 0px 0px rgba(255, 255, 255, 0.25);
 }
@@ -190,7 +193,9 @@ input::file-selector-button:hover,
 input::file-selector-button,
 #buy_btn,
 #edit-btn,
-#pass-btn {
+#pass-btn,
+.cart-item button,
+.payment button, #promo-code-box button {
     text-decoration: none;
     color: black;
     font-size: 15px;
