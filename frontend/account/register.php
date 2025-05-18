@@ -105,11 +105,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                         <div>
                             <p>04</p>
-                            <a href="#">Tickets</a>
+                            <a href="../store/tickets.html">Tickets</a>
                         </div>
                         <div>
                             <p>05</p>
-                            <a href="#">Merch</a>
+                            <a href="../store/merch.php">Merch</a>
                         </div>
 
                         <div>
@@ -210,10 +210,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <li><a href="../homepage/index.html">General</a></li>
                             <li><a href="../schedule/schedule.html">Schedule</a></li>
                             <li><a href="../facilities/facilities.html">Facilities</a></li>
-                            <li><a href="">Tickets</a></li>
+                            <li><a href="../store/tickets.html">Tickets</a></li>
                         </ul>
                         <ul>
-                            <li><a href="">Merch</a></li>
+                            <li><a href="../store/merch.php">Merch</a></li>
                             <li><a href="../involvement/get-involved.html">Join us</a></li>
                             <li><a href="">Contact</a></li>
                             <li><a href="../privacy-terms/privacy.html">Privacy Policy</a></li>

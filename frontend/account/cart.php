@@ -5,6 +5,24 @@ if (!isset($_SESSION["user_id"])) {
     header("Location: ./login.php");
     exit();
 }
+include "db.php";
+$user_id = $_SESSION['user_id'];
+
+$sql = "SELECT product_id, price, quantity, size FROM cart WHERE user_id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+
+$result = $stmt->get_result();
+
+$cartItems = [];
+
+while ($row = $result->fetch_assoc()) {
+    $cartItems[] = $row;
+}
+
+$stmt->close();
+$conn->close();
 ?>
 
 
@@ -22,7 +40,7 @@ if (!isset($_SESSION["user_id"])) {
     <link rel="stylesheet" href="./login.css">
     <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">    
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
     <link rel="manifest" href="../favicon/site.webmanifest">
     <script src="../loader.js"></script>
 </head>
@@ -52,11 +70,11 @@ if (!isset($_SESSION["user_id"])) {
 
                         <div>
                             <p>04</p>
-                            <a href="#">Tickets</a>
+                            <a href="../store/tickets.html">Tickets</a>
                         </div>
                         <div>
                             <p>05</p>
-                            <a href="#">Merch</a>
+                            <a href="../store/merch.php">Merch</a>
                         </div>
 
                         <div>
@@ -87,8 +105,22 @@ if (!isset($_SESSION["user_id"])) {
                             <h3 class="small-headings">bees like to shop</h3>
                             <h1 class="main-headings">Shopping Cart</h1>
                         </div>
-                        <h2>You have n items in your cart</h2>
-                        <!-- change later -->
+                        <div id="cart-container"></div>
+                        <div class="promo-pay">
+                            <div id="promo-code-box">
+                                <h3>Have a promo code?</h3>
+                                <input type="text" id="promo-code-input" placeholder="Enter promo code" />
+                                <button onclick="applyPromo()">Apply</button>
+                                <p id="promo-msg"></p>
+                            </div>
+                            <div class="payment">
+                                <button id="pay">Proceed To Payment</button>
+                            </div>
+                        </div>
+
+
+
+
                     </div>
                 </div>
             </div>
@@ -129,10 +161,10 @@ if (!isset($_SESSION["user_id"])) {
                             <li><a href="../homepage/index.html">General</a></li>
                             <li><a href="../schedule/schedule.html">Schedule</a></li>
                             <li><a href="../facilities/facilities.html">Facilities</a></li>
-                            <li><a href="">Tickets</a></li>
+                            <li><a href="../store/tickets.html">Tickets</a></li>
                         </ul>
                         <ul>
-                            <li><a href="">Merch</a></li>
+                            <li><a href="../store/merch.php">Merch</a></li>
                             <li><a href="../involvement/get-involved.html">Join us</a></li>
                             <li><a href="">Contact</a></li>
                             <li><a href="../privacy-terms/privacy.html">Privacy Policy</a></li>
@@ -161,5 +193,162 @@ if (!isset($_SESSION["user_id"])) {
 </body>
 
 </html>
+<script>
+    const cartItems = <?php echo json_encode($cartItems); ?>;
+    const cartContainer = document.getElementById('cart-container');
+
+    let promoApplied = false;
+    let discountPercent = 0;
+
+    async function fetchProduct(productId) {
+        const res = await fetch(`https://fakestoreapi.com/products/${productId}`);
+        if (!res.ok) throw new Error('Failed to fetch product');
+        return res.json();
+    }
+
+    async function renderCart() {
+        if (cartItems.length === 0) {
+            cartContainer.innerHTML = "<p>Your cart is empty.</p>";
+            return;
+        }
+
+        let totalPrice = 0;
+        cartContainer.innerHTML = '';
+
+        for (const item of cartItems) {
+            try {
+                const product = await fetchProduct(item.product_id);
+                const itemTotal = product.price * item.quantity;
+                totalPrice += itemTotal;
+
+                const itemDiv = document.createElement('div');
+                itemDiv.classList.add('cart-item');
+
+                itemDiv.innerHTML = `
+                    <a href="../store/product.html?id=${product.id}">${product.title}</a>
+                    <p>Size: ${item.size || '-'}</p>
+                    <p>Price: €${product.price.toFixed(2)}</p>
+                    <label>
+                        Quantity: 
+                        <input type="number" min="1" max="50" value="${item.quantity}" data-id="${item.product_id}" data-size="${item.size}" class="quantity-input" />
+                    </label>
+                    <button class="update-btn" data-id="${item.product_id}" data-size="${item.size}">Update Quantity</button>
+                    <button class="remove-btn" data-id="${item.product_id}" data-size="${item.size}">Remove</button>
+                    <p>€${itemTotal.toFixed(2)}</p>
+                    <hr>
+                `;
+
+                cartContainer.appendChild(itemDiv);
+            } catch (e) {
+                console.error('Failed to load product details for product_id:', item.product_id);
+            }
+        }
+        let finalTotal = totalPrice;
+        if (promoApplied) {
+            finalTotal = totalPrice - (totalPrice * discountPercent / 100);
+        }
+
+        const totalDiv = document.createElement('div');
+        totalDiv.innerHTML = `<h2 id="total">Cart Total: €${finalTotal.toFixed(2)}</h2>`;
+        cartContainer.appendChild(totalDiv);
+
+        attachEventListeners();
+    }
+
+    function applyPromo() {
+        const input = document.getElementById('promo-code-input').value.trim().toUpperCase();
+        const validCodes = {
+            "ILOVEBEES": 15,
+        };
+
+        if (validCodes[input]) {
+            discountPercent = validCodes[input];
+            promoApplied = true;
+            document.getElementById('promo-msg').innerHTML = `Promo applied: ${discountPercent}% off!`;
+        } else {
+            discountPercent = 0;
+            promoApplied = false;
+            document.getElementById('promo-msg').innerHTML = "Invalid promo code.";
+        }
+
+        renderCart();
+    }
+
+    function attachEventListeners() {
+        const updateButtons = document.querySelectorAll('.update-btn');
+        const removeButtons = document.querySelectorAll('.remove-btn');
+
+        updateButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const productId = button.dataset.id;
+                const size = button.dataset.size;
+                const quantityInput = document.querySelector(`input.quantity-input[data-id="${productId}"][data-size="${size}"]`);
+                const newQuantity = parseInt(quantityInput.value);
+
+                if (isNaN(newQuantity) || newQuantity < 1) {
+                    alert('Quantity must be at least 1');
+                    return;
+                }
+
+                updateQuantity(productId, size, newQuantity);
+            });
+        });
+
+        removeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const productId = button.dataset.id;
+                const size = button.dataset.size;
+                removeItem(productId, size);
+            });
+        });
+    }
+
+    function updateQuantity(productId, size, quantity) {
+        fetch('./update_cart.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams({
+                    product_id: productId,
+                    size: size,
+                    quantity: quantity
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    location.reload();
+                } else {
+                    alert('Failed to update quantity');
+                }
+            })
+            .catch(() => alert('Error updating quantity'));
+    }
+
+    function removeItem(productId, size) {
+        fetch('./remove_cart.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams({
+                    product_id: productId,
+                    size: size
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    location.reload();
+                } else {
+                    alert('Failed to remove item');
+                }
+            })
+            .catch(() => alert('Error removing item'));
+    }
+
+    renderCart();
+</script>
 
 <script src="../universal.js"></script>

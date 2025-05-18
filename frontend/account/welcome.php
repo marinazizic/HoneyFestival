@@ -32,8 +32,7 @@ $selected_year = $date->format('Y');
 $stmt->close();
 
 
-
-if (isset($_POST["send-changes"])) {
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["new-username"])) {
     $selected_day = $_POST['day'];
     $selected_month = $_POST['month'];
     $selected_year = $_POST['year'];
@@ -44,71 +43,74 @@ if (isset($_POST["send-changes"])) {
 
     if ($age->y < 18) {
         $error = "You must be at least 18 years old.";
-    } else {
-        $new_username = trim($_POST["new-username"]);
-        $new_email = trim($_POST["new-email"]);
-        $new_fname = trim($_POST["new-fname"]);
-        $new_lname = trim($_POST["new-lname"]);
-        $new_gender = trim($_POST["gender"]);
-        $new_country = trim($_POST["country"]);
-
-        $stmt = $conn->prepare("SELECT id FROM users WHERE username = ? AND username != ?");
-        $stmt->bind_param("ss", $new_username, $username);
-        $stmt->execute();
-        $stmt->store_result();
-
-        if ($stmt->num_rows > 0) {
-            $error = "That username is already taken.";
-        } else {
-            $stmt = $conn->prepare("SELECT id FROM users WHERE email = ? AND username != ?");
-            $stmt->bind_param("ss", $new_email, $username);
-            $stmt->execute();
-            $stmt->store_result();
-
-            if ($stmt->num_rows > 0) {
-                $error = "That email is already in use.";
-            } else {
-                $updated_birthday = $stringDate;
-
-                if (isset($_FILES['profile_pic']) && $_FILES['profile_pic']['error'] === 0) {
-                    $file = $_FILES['profile_pic'];
-                    $allowed = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
-                    $fileExt = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
-
-                    if (in_array($fileExt, $allowed)) {
-                        if ($file['size'] <= 2 * 1024 * 1024) {
-                            $newFileName = uniqid("IMG_", true) . "." . $fileExt;
-                            $uploadDir = "../uploads/profile_pics/";
-                            if (!file_exists($uploadDir)) {
-                                mkdir($uploadDir, 0777, true);
-                            }
-                            $filePath = $uploadDir . $newFileName;
-                            move_uploaded_file($file['tmp_name'], $filePath);
-                        } else {
-                            $upload_error = "Image too large (max 2MB).";
-                        }
-                    } else {
-                        $upload_error = "Invalid image format.";
-                    }
-                } else {
-                    $filePath = $profile_pic;
-                }
-
-                if (!$upload_error) {
-                    $stmt = $conn->prepare("UPDATE users SET username = ?, email = ?, birthday = ?, f_name = ?, l_name = ?, country = ?, gender = ?, profile_pic = ? WHERE username = ?");
-                    $stmt->bind_param("sssssssss", $new_username, $new_email, $updated_birthday, $new_fname, $new_lname, $new_country, $new_gender, $filePath, $username);
-
-                    if ($stmt->execute()) {
-                        $_SESSION["username"] = $new_username;
-                        $username = $new_username;
-                    } else {
-                        $error = "Failed to update profile: " . $stmt->error;
-                    }
-                    $stmt->close();
-                }
-            }
-        }
+        exit();
     }
+
+    $new_username = trim($_POST["new-username"]);
+    $new_email = trim($_POST["new-email"]);
+    $new_fname = trim($_POST["new-fname"]);
+    $new_lname = trim($_POST["new-lname"]);
+    $new_gender = trim($_POST["gender"]);
+    $new_country = trim($_POST["country"]);
+
+    $stmt = $conn->prepare("SELECT id FROM users WHERE username = ? AND username != ?");
+    $stmt->bind_param("ss", $new_username, $username);
+    $stmt->execute();
+    $stmt->store_result();
+
+    if ($stmt->num_rows > 0) {
+        $error = "That username is already taken.";
+        exit();
+    }
+
+    $stmt = $conn->prepare("SELECT id FROM users WHERE email = ? AND username != ?");
+    $stmt->bind_param("ss", $new_email, $username);
+    $stmt->execute();
+    $stmt->store_result();
+
+    if ($stmt->num_rows > 0) {
+        $error = "That email is already in use.";
+        exit();
+    }
+
+    $updated_birthday = $stringDate;
+
+    if (isset($_FILES['profile_pic']) && $_FILES['profile_pic']['error'] === 0) {
+        $file = $_FILES['profile_pic'];
+        $allowed = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
+        $fileExt = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+
+        if (!in_array($fileExt, $allowed)) {
+            $upload_error = "Invalid image format.";
+            exit();
+        }
+
+        if ($file['size'] > 2 * 1024 * 1024) {
+            $upload_error = "Image too large (max 2MB).";
+            exit();
+        }
+
+        $newFileName = uniqid("IMG_", true) . "." . $fileExt;
+        $uploadDir = "../uploads/profile_pics/";
+        if (!file_exists($uploadDir)) {
+            mkdir($uploadDir, 0777, true);
+        }
+        $filePath = $uploadDir . $newFileName;
+        move_uploaded_file($file['tmp_name'], $filePath);
+    } else {
+        $filePath = $profile_pic;
+    }
+
+    $stmt = $conn->prepare("UPDATE users SET username = ?, email = ?, birthday = ?, f_name = ?, l_name = ?, country = ?, gender = ?, profile_pic = ? WHERE username = ?");
+    $stmt->bind_param("sssssssss", $new_username, $new_email, $updated_birthday, $new_fname, $new_lname, $new_country, $new_gender, $filePath, $username);
+
+    if ($stmt->execute()) {
+        $_SESSION["username"] = $new_username;
+    } else {
+        $stmt->error;
+    }
+    $stmt->close();
+    exit();
 }
 
 if (isset($_POST["change-password"])) {
@@ -144,8 +146,8 @@ if (isset($_POST["change-password"])) {
     }
 }
 
-if(!$password_error && !$upload_error && !$error){
-    $noerror = true; 
+if (!$password_error && !$upload_error && !$error) {
+    $noerror = true;
 }
 ?>
 
@@ -199,11 +201,11 @@ if(!$password_error && !$upload_error && !$error){
 
                         <div>
                             <p>04</p>
-                            <a href="#">Tickets</a>
+                            <a href="../store/tickets.html">Tickets</a>
                         </div>
                         <div>
                             <p>05</p>
-                            <a href="#">Merch</a>
+                            <a href="../store/merch.php">Merch</a>
                         </div>
 
                         <div>
@@ -615,8 +617,7 @@ if(!$password_error && !$upload_error && !$error){
                                             </div>
                                         </div>
                                     </div>
-                                    <input type="submit" id="edit-btn" value="Confirm changes" name="send-changes">
-
+                                    <input type="submit" id="edit-btn" value="Confirm changes">
                                 </form>
                                 <h2 class="tab-heading" id="ch-h2">Change My Password</h2>
                                 <form method="POST" class="pass-form">
@@ -670,10 +671,10 @@ if(!$password_error && !$upload_error && !$error){
                             <li><a href="../homepage/index.html">General</a></li>
                             <li><a href="../schedule/schedule.html">Schedule</a></li>
                             <li><a href="../facilities/facilities.html">Facilities</a></li>
-                            <li><a href="">Tickets</a></li>
+                            <li><a href="../store/tickets.html">Tickets</a></li>
                         </ul>
                         <ul>
-                            <li><a href="">Merch</a></li>
+                            <li><a href="../store/merch.php">Merch</a></li>
                             <li><a href="../involvement/get-involved.html">Join us</a></li>
                             <li><a href="">Contact</a></li>
                             <li><a href="../privacy-terms/privacy.html">Privacy Policy</a></li>
@@ -708,6 +709,22 @@ if(!$password_error && !$upload_error && !$error){
             active: 0
         }).addClass("ui-tabs-vertical ui-helper-clearfix");
         $("#tabs li").removeClass("ui-corner-top").addClass("ui-corner-left");
+    });
+
+    document.getElementById('change-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const formData = new FormData(this);
+
+        fetch('welcome.php', {
+            method: 'POST',
+            body: formData
+        }).then(response => {
+            if (response.ok) {
+                location.reload();
+            } else {
+                alert("Something went wrong!");
+            }
+        });
     });
 </script>
 <script src="../universal.js"></script>

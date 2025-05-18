@@ -142,7 +142,8 @@ select {
 }
 
 .forms input,
-select {
+select,
+#promo-code-input {
     border: none;
     background: white;
     cursor: text;
@@ -153,9 +154,10 @@ select {
     margin: 10px 0px;
 }
 
-.forms input:focus {
+.forms input:focus,
+#promo-code-input:hover {
     transition: 0.7s;
-    border: 1px solid rgba(0, 0, 0, 0.311);
+    border: 1px solid white;
 }
 
 #acc-btn {
@@ -368,7 +370,7 @@ select {
     border-radius: 50%;
 }
 
-#default-pfp{
+#default-pfp {
     padding: 50px;
     width: 40px;
     height: 40px;
@@ -437,7 +439,7 @@ select,
 #tabs-6 input[type=email]:focus,
 select:focus {
     transition: 0.7s;
-    border: 1px solid rgba(0, 0, 0, 0.311);
+    border: 1px solid white;
 }
 
 #select-birthday {
@@ -514,6 +516,75 @@ input[type=file] {
 
 .closebtn:hover {
     color: rgba(0, 0, 0, 0.552);
+}
+
+#cart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.cart-item {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.cart-item button,
+.cart-item p,
+.cart-item label,
+.cart-item a {
+    margin: 0px 10px;
+}
+
+.cart-item p {
+    width: 80px;
+
+}
+
+#promo-code-box button {
+    padding: 10px 15px;
+}
+
+.quantity-input {
+    background: white;
+    z-index: 1;
+    border: 1px solid black;
+    outline: none;
+    margin: 10px 0px;
+    box-sizing: content-box;
+    height: 40px;
+    padding: 0px 10px;
+}
+
+.quantity-input:focus {
+    transition: 0.7s;
+    border: 1px solid white;
+}
+
+#total {
+    padding-top: 15px;
+}
+
+.promo-pay {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#promo-code-box {
+    padding: 40px;
+    padding-left: 10px;
+}
+
+.payment {
+    padding-right: 10px;
 }
 
 
@@ -616,5 +687,34 @@ input[type=file] {
 
     .pfp {
         margin-left: -20px;
+    }
+
+    .cart-item {
+        width: 100%;
+        height: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        margin-bottom: 50px;
+        padding: 10px;
+        background-color: rgba(255, 255, 255, 0.113);
+    }
+
+    .cart-item button {
+        margin-bottom: 5px;
+    }
+
+    .promo-pay {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #promo-code-box {
+        margin: 15px -5px;
+        padding: 30px;
+        background-color: rgba(255, 255, 255, 0.113);
+    }
+
+    #promo-msg{
+        margin-top: 5px;
     }
 }
