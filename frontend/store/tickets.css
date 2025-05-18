@@ -1,0 +1,265 @@
+/* fonts */
+@font-face {
+    font-family: Praysire;
+    src: url(../fonts/praysire/Praysire\ Demo.otf);
+}
+
+@font-face {
+    font-family: Louis George Cafe;
+    src: url(../fonts/louis_george_caf/Louis\ George\ Cafe.ttf);
+}
+
+@font-face {
+    font-family: Louis George Cafe Bold;
+    src: url(../fonts/louis_george_caf/Louis\ George\ Cafe\ Bold.ttf);
+}
+
+/* code */
+
+.ticket-main,
+.merch-main, .shop-main {
+    height: 40vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#ticket-img,
+#merch-img {
+    z-index: -1;
+    width: 100%;
+    height: 70vh;
+    object-fit: cover;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.ticket,
+.merch {
+    background-color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.ticket span,
+.merch span {
+    text-decoration: underline;
+    font-style: italic;
+}
+
+.ticket-content,
+.product-content {
+    padding: 100px 0px;
+    width: 60%;
+}
+
+.merch-content {
+    padding: 100px 0px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.small-headings {
+    margin: 0px;
+}
+
+.ticket-content h1,
+.merch-content h1 {
+    font-family: Praysire;
+    padding: 7px 0px;
+}
+
+#products-container {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: repeat(7, auto);
+}
+
+.product {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 70px 25px;
+    height: 400px;
+}
+
+.product h3 {
+    text-align: center;
+}
+
+.product img {
+    width: 150px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+#first-div {
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#second-div {
+    width: 100%;
+    margin-top: 10px;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+#price-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.findmore,
+.add-to-cart {
+    margin-top: 10px;
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    font-family: Louis George Cafe;
+    padding: 12px 15px;
+    border: none;
+    background: black;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.findmore:hover,
+.add-to-cart {
+    transition: 0.6s;
+    box-shadow: 6px 57px 23px rgba(0, 0, 0, 0.04), 3px 32px 20px rgba(0, 0, 0, 0.13), 2px 14px 14px rgba(0, 0, 0, 0.21), 0px 4px 8px rgba(0, 0, 0, 0.25), 0px 0px 0px rgba(0, 0, 0, 0.25);
+}
+
+#product-details {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto;
+}
+
+.first-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.first-col img {
+    width: 300px;
+
+}
+
+.second-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.second-col h2 {
+    font-family: Praysire;
+    margin-bottom: 2px;
+}
+
+.second-col #category {
+    font-size: 14px;
+    text-transform: uppercase;
+    color: rgb(148, 121, 104);
+    font-size: 12px;
+    letter-spacing: 0.1cm;
+    margin-bottom: 15px;
+}
+
+#desc,
+#price,
+#size,
+#product-quantity {
+    margin-top: 15px;
+}
+
+#product-quantity,
+#size {
+    background: white;
+    z-index: 1;
+    border: 1px solid black;
+    outline: none;
+    margin: 10px 0px;
+    box-sizing: content-box;
+    height: 40px;
+    padding: 0px 10px;
+}
+
+#product-quantity {
+    width: 30px;
+}
+
+
+@media screen and (max-width: 768px) {
+    .product {
+        padding: 70px 40px;
+        height: 350px;
+    }
+
+    .product img {
+        width: 120px;
+    }
+
+    
+    .product-content {
+        width: 85%;
+    }
+
+    
+    .first-col img{
+        width: 250px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+
+    .shop-coverpage {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #products-container {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: repeat(20, auto);
+    }
+
+
+    #product-details {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: auto auto;
+    }
+
+    .first-col img{
+        width: 200px;
+    }
+
+    .first-col{
+        margin-bottom: 50px;
+    }
+}
