@@ -175,7 +175,10 @@ p {
 .column-one #ctn-btn:hover,
 .newsletter-content input[type=submit]:hover,
 #buy_btn:hover,
-#top_btn:hover, #edit-btn:hover, #pass-btn:hover{
+input::file-selector-button:hover,
+#top_btn:hover,
+#edit-btn:hover,
+#pass-btn:hover {
     transition: 0.6s;
     box-shadow: 6px 57px 23px rgba(255, 255, 255, 0.04), 3px 32px 20px rgba(255, 255, 255, 0.13), 2px 14px 14px rgba(255, 255, 255, 0.21), 0px 4px 8px rgba(255, 255, 255, 0.25), 0px 0px 0px rgba(255, 255, 255, 0.25);
 }
@@ -184,7 +187,10 @@ p {
 .findout a,
 .column-one #ctn-btn,
 .newsletter-content input[type=submit],
-#buy_btn, #edit-btn, #pass-btn{
+input::file-selector-button,
+#buy_btn,
+#edit-btn,
+#pass-btn {
     text-decoration: none;
     color: black;
     font-size: 15px;
@@ -196,7 +202,9 @@ p {
     z-index: 1;
 }
 
-input, textarea, select{
+input,
+textarea,
+select {
     font-family: Louis George Cafe;
 }
 

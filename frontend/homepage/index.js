@@ -1,4 +1,3 @@
-// Modal Function
 function showModal(id) {
     let modal = document.getElementById(`modal${id}`);
     let img = document.getElementById(`img${id}`);
@@ -15,19 +14,16 @@ function showModal(id) {
     }
 }
 
-// Thank You Message
 function showThankYou() {
     document.getElementById("thankYou").innerHTML = "Thank you!";
 }
 
-// Event Listeners for Images & Button
 document.getElementById("img1").addEventListener("click", () => showModal(1));
 document.getElementById("img2").addEventListener("click", () => showModal(2));
 document.getElementById("img3").addEventListener("click", () => showModal(3));
 document.getElementById("img4").addEventListener("click", () => showModal(4));
 document.getElementById("send").addEventListener("click", showThankYou);
 
-// Countdown Timer
 const countDownDate = new Date("Jul 3, 2025 07:00:00").getTime();
 
 const countdownInterval = setInterval(() => {
@@ -48,8 +44,7 @@ const countdownInterval = setInterval(() => {
     document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
 }, 1000);
 
-//JQuery
-
 $(document).ready(function () {
     $("#accordion").accordion();
 });
+
