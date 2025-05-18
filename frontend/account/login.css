@@ -252,7 +252,7 @@ select {
     height: 200vh;
     position: absolute;
     z-index: -1;
-    object-fit:contain;
+    object-fit: contain;
 
 }
 
@@ -335,7 +335,8 @@ select {
     vertical-align: middle;
 }
 
-#tabs ul li img, #mobile-user-icon{
+#tabs ul li img,
+#mobile-user-icon {
     width: 15px;
     margin-right: 10px;
     filter: brightness(0%);
@@ -353,17 +354,25 @@ select {
 
 .account-banner {
     padding: 40px 0px;
-    width: 60%;
+    width: 30%;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
 }
 
-.account-banner div img {
+.pfp {
+    padding: 20px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+
+#default-pfp{
     padding: 50px;
-    background-color: white;
-    opacity: 70%;
+    width: 40px;
+    height: 40px;
+    filter: brightness(0%);
 }
 
 .account-banner div p,
@@ -394,7 +403,8 @@ select {
 
 #tabs-6 input[type=text],
 #tabs-6 input[type=email],
-select, #tabs-6 input[type=password]  {
+select,
+#tabs-6 input[type=password] {
     border: none;
     background: white;
     cursor: text;
@@ -415,7 +425,8 @@ select, #tabs-6 input[type=password]  {
 #gender,
 #day,
 #month,
-#year, .r-select {
+#year,
+.r-select {
     cursor: pointer;
     box-sizing: content-box;
 
@@ -435,7 +446,8 @@ select:focus {
     flex-direction: row;
 }
 
-#edit-btn, #pass-btn{
+#edit-btn,
+#pass-btn {
     margin-top: 15px;
 }
 
@@ -444,32 +456,77 @@ select:focus {
     box-sizing: content-box;
 }
 
-.forms div input{
+.forms div input {
     width: 80px;
 }
 
-#change-form{
+#change-form {
     margin-bottom: 30px;
 }
 
-#ch-h2{
+#ch-h2 {
     padding-bottom: 15px;
 }
 
 
-#first-input{
+#first-input {
     border-right-width: 0;
 }
 
-.pass-form{
+.pass-form {
     display: flex;
     flex-direction: column;
     width: 200px;
 }
 
-#edit-btn, #pass-btn{
+#edit-btn,
+#pass-btn {
     width: 145px;
 }
+
+input[type=file] {
+    margin-top: 20px;
+}
+
+.alert {
+    font-family: Louis George Cafe;
+    position: absolute;
+    z-index: 9999;
+    margin-top: 20px;
+    margin-left: 20px;
+    padding: 20px;
+    background-color: white;
+    opacity: 70%;
+    color: black;
+    margin-bottom: 15px;
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: black;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: rgba(0, 0, 0, 0.552);
+}
+
+
+@media screen and (max-width: 768px) {
+
+    #tabs-6 input[type=text],
+    #tabs-6 input[type=email],
+    select,
+    #tabs-6 input[type=password] {
+        width: 120px;
+    }
+}
+
 @media screen and (max-width: 450px) {
 
     .login-coverpage {
@@ -486,7 +543,7 @@ select:focus {
         margin: 0px 25px;
     }
 
-    #tabs ul{
+    #tabs ul {
         margin: 10px;
         padding: 0;
         width: 20%;
@@ -500,35 +557,64 @@ select:focus {
     .account-banner {
         width: 100%;
     }
+
     .all-tabs {
         margin-left: 8px;
         width: 80%;
     }
 
-    #tabs-6 input[type=text], #tabs-6 input[type=email], select {
+    #tabs-6 input[type=text],
+    #tabs-6 input[type=email],
+    select,
+    #tabs-6 input[type=password] {
         width: 160px;
     }
 
-    .account-grid{
+    .account-grid {
         display: grid;
         grid-template-columns: 60% 40%;
         grid-template-rows: auto auto auto;
     }
 
-    .account-grid p{
+    .account-grid p {
         word-wrap: break-word;
     }
 
-    .account-grid1{
+    .account-grid1 {
         display: grid;
-        grid-template-columns:100%;
+        grid-template-columns: 100%;
         grid-template-rows: repeat(6, auto);
     }
-    #day, #month, #year {
+
+    #day,
+    #month,
+    #year {
         width: 33%;
     }
 
-    .forms div{
+    .forms div {
         flex-direction: column;
+    }
+
+    .forms div input {
+        width: 200px;
+        box-sizing: content-box;
+    }
+
+    #first-input {
+        border-right: 1px solid black;
+    }
+
+    #bg-img {
+        height: 250vh;
+    }
+
+    input[type=file] {
+        margin-top: 20px;
+        width: 200px;
+    }
+
+    .pfp {
+        margin-left: -20px;
     }
 }

@@ -6,17 +6,19 @@ if (!isset($_SESSION["username"])) {
 }
 
 $error = "";
+$password_error = "";
+$upload_error = "";
 require "db.php";
 
 $username = $_SESSION["username"];
 
-$stmt = $conn->prepare("SELECT f_name, l_name, gender, email, account_id, created_at, country, birthday FROM users WHERE username = ?");
+$stmt = $conn->prepare("SELECT f_name, l_name, gender, email, account_id, created_at, country, birthday, profile_pic FROM users WHERE username = ?");
 $stmt->bind_param("s", $username);
 $stmt->execute();
 $stmt->store_result();
 
 if ($stmt->num_rows > 0) {
-    $stmt->bind_result($f_name, $l_name, $gender, $email, $account_id, $created_at, $country, $birthday);
+    $stmt->bind_result($f_name, $l_name, $gender, $email, $account_id, $created_at, $country, $birthday, $profile_pic);
     $stmt->fetch();
 } else {
     header("Location: login.php");
@@ -27,8 +29,9 @@ $date = new DateTime($birthday);
 $selected_day = $date->format('d');
 $selected_month = $date->format('m');
 $selected_year = $date->format('Y');
-
 $stmt->close();
+
+
 
 if (isset($_POST["send-changes"])) {
     $selected_day = $_POST['day'];
@@ -38,7 +41,6 @@ if (isset($_POST["send-changes"])) {
     $userDate = new DateTime($stringDate);
     $currentDate = new DateTime();
     $age = $currentDate->diff($userDate);
-
 
     if ($age->y < 18) {
         $error = "You must be at least 18 years old.";
@@ -67,21 +69,47 @@ if (isset($_POST["send-changes"])) {
                 $error = "That email is already in use.";
             } else {
                 $updated_birthday = $stringDate;
-                $stmt = $conn->prepare("UPDATE users SET username = ?, email = ?, birthday = ?, f_name = ?, l_name = ?, country = ?, gender = ? WHERE username = ?");
-                $stmt->bind_param("ssssssss", $new_username, $new_email, $updated_birthday, $new_fname, $new_lname, $new_country, $new_gender, $username);
 
-                if ($stmt->execute()) {
-                    $_SESSION["username"] = $new_username;
-                    $username = $new_username;
+                if (isset($_FILES['profile_pic']) && $_FILES['profile_pic']['error'] === 0) {
+                    $file = $_FILES['profile_pic'];
+                    $allowed = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
+                    $fileExt = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+
+                    if (in_array($fileExt, $allowed)) {
+                        if ($file['size'] <= 2 * 1024 * 1024) {
+                            $newFileName = uniqid("IMG_", true) . "." . $fileExt;
+                            $uploadDir = "../uploads/profile_pics/";
+                            if (!file_exists($uploadDir)) {
+                                mkdir($uploadDir, 0777, true);
+                            }
+                            $filePath = $uploadDir . $newFileName;
+                            move_uploaded_file($file['tmp_name'], $filePath);
+                        } else {
+                            $upload_error = "Image too large (max 2MB).";
+                        }
+                    } else {
+                        $upload_error = "Invalid image format.";
+                    }
                 } else {
-                    $error = "Failed to update profile: " . $stmt->error;
+                    $filePath = $profile_pic;
+                }
+
+                if (!$upload_error) {
+                    $stmt = $conn->prepare("UPDATE users SET username = ?, email = ?, birthday = ?, f_name = ?, l_name = ?, country = ?, gender = ?, profile_pic = ? WHERE username = ?");
+                    $stmt->bind_param("sssssssss", $new_username, $new_email, $updated_birthday, $new_fname, $new_lname, $new_country, $new_gender, $filePath, $username);
+
+                    if ($stmt->execute()) {
+                        $_SESSION["username"] = $new_username;
+                        $username = $new_username;
+                    } else {
+                        $error = "Failed to update profile: " . $stmt->error;
+                    }
+                    $stmt->close();
                 }
             }
         }
     }
 }
-
-$password_error = "";
 
 if (isset($_POST["change-password"])) {
     $current_password = $_POST["current_password"];
@@ -116,6 +144,9 @@ if (isset($_POST["change-password"])) {
     }
 }
 
+if(!$password_error && !$upload_error && !$error){
+    $noerror = true; 
+}
 ?>
 
 <!DOCTYPE html>
@@ -134,9 +165,16 @@ if (isset($_POST["change-password"])) {
     <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
     <link rel="manifest" href="../favicon/site.webmanifest">
+    <script src="../loader.js"></script>
 </head>
 
 <body>
+    <div class="alert" style="<?php echo $noerror ? 'display: none;' : 'display: block;'; ?>">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <?= $error ?>
+        <?= $upload_error ?>
+        <?= $password_error ?>
+    </div>
     <div class="container">
         <div class="tg">
             <img src="../assets/cover-img.jpg" alt="Festival image" id="bg-img">
@@ -218,9 +256,14 @@ if (isset($_POST["change-password"])) {
                                 <h2 class="tab-heading">My Honey Passport</h2>
                                 <div class="account-banner">
                                     <div>
-                                        <img src="../assets/bee.png" alt="Bee icon">
+                                        <?php if (!empty($profile_pic)) : ?>
+                                            <img src="<?php echo htmlspecialchars($profile_pic); ?>" alt="Profile Picture" class="pfp">
+                                        <?php else : ?>
+                                            <img src="../assets/user-icon.png" alt="Default Profile Picture" class="pfp" id="default-pfp">
+                                        <?php endif; ?>
+
                                     </div>
-                                    <div>
+                                    <div class="names">
                                         <h2><?php echo htmlspecialchars(($f_name) . " " . htmlspecialchars($l_name)); ?></h2>
                                         <p class="tiny-headings">Honey Passport ID:</p>
                                         <p id="acc-id"><?php echo htmlspecialchars(($account_id)); ?></p>
@@ -272,7 +315,11 @@ if (isset($_POST["change-password"])) {
                             </div>
                             <div id="tabs-6" class="all-tabs">
                                 <h2 class="tab-heading">Edit My Account</h2>
-                                <form method="POST" id="change-form">
+
+
+                                <form method="POST" id="change-form" enctype="multipart/form-data">
+                                    <input type="file" name="profile_pic" accept="image/*" class="add-img">
+                                    <p></p>
                                     <div class="edit-details">
                                         <div class="account-grid1">
                                             <div>
@@ -569,7 +616,6 @@ if (isset($_POST["change-password"])) {
                                         </div>
                                     </div>
                                     <input type="submit" id="edit-btn" value="Confirm changes" name="send-changes">
-                                    <p><?= $error ?></p>
 
                                 </form>
                                 <h2 class="tab-heading" id="ch-h2">Change My Password</h2>
@@ -578,10 +624,7 @@ if (isset($_POST["change-password"])) {
                                     <input type="password" name="new_password" placeholder="New Password" required>
                                     <input type="password" name="confirm_password" placeholder="Confirm New Password" required>
                                     <input type="submit" name="change-password" id="pass-btn" value="Change Password">
-                                    <p><?= $password_error ?></p>
                                 </form>
-
-
                             </div>
                         </div>
 
