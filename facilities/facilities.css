@@ -1,0 +1,183 @@
+/* fonts */
+@font-face {
+    font-family: Praysire;
+    src: url(../fonts/praysire/Praysire\ Demo.otf);
+}
+
+@font-face {
+    font-family: Louis George Cafe;
+    src: url(../fonts/louis_george_caf/Louis\ George\ Cafe.ttf);
+}
+
+@font-face {
+    font-family: Louis George Cafe Bold;
+    src: url(../fonts/louis_george_caf/Louis\ George\ Cafe\ Bold.ttf);
+}
+
+/* code */
+
+.facilities-main {
+    height: 40vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#facilities-img {
+    z-index: -1;
+    width: 100%;
+    height: 70vh;
+    object-fit: cover;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.facilities {
+    background-color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    z-index: 1;
+}
+
+.facilities-content h1 {
+    font-family: Praysire;
+    padding: 7px 0px;
+}
+
+span {
+    text-decoration: underline;
+    font-style: italic;
+}
+
+.facilities-content {
+    padding: 100px 0px;
+    width: 60%;
+    position: relative;
+    z-index: 1;
+}
+
+.small-headings {
+    margin: 0px;
+}
+
+.facility-imgs {
+    margin-bottom: 5px;
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+}
+
+.facility-grid {
+    margin-bottom: 50px;
+    height: 215vh;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 70vh 70vh 70vh;
+    padding: -25px;
+    z-index: 1;
+}
+
+.facility-grid div {
+    cursor: pointer;
+    transition: transform 0.7s ease;
+    padding: 25px;
+    z-index: 0;
+}
+
+.facility-grid div {
+    position: relative;
+}
+
+.facility-grid div .blurred-img {
+    width: 70%;
+    height: 70%;
+    border-radius: 100%;
+    filter: blur(180px);
+    position: absolute;
+    z-index: -1;
+    background: transparent;
+    transition: 0.7s;
+}
+
+.facility-grid div:hover .blurred-img {
+    background: rgb(143, 103, 77);
+}
+
+#par {
+    margin-bottom: 40px;
+}
+
+#list li {
+    margin: 10px 0px;
+}
+
+#star {
+    z-index: 1;
+    position: absolute;
+    width: 100px;
+    top: 0;
+    right: 0;
+    margin-right: -45px;
+}
+
+#star1 {
+    z-index: -1;
+    position: absolute;
+    width: 100px;
+    top: 1;
+    left: 0;
+    margin-left: -45px;
+    margin-top: -70px;
+
+}
+
+/* .facility-grid div:hover {
+    transform: scale(1.05);
+    transition: 0.7s;
+} */
+
+
+@media screen and (max-width: 770px) {
+
+
+    .facility-grid {
+        height: 245vh;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 80vh 80vh 80vh;
+        margin-bottom: 100px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+
+    .facilities-coverpage {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .facility-grid div {
+        padding: 0;
+    }
+
+    .facility-grid {
+        height: 605vh;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: repeat(6, 100vh);
+        margin-bottom: 100px;
+    }
+}

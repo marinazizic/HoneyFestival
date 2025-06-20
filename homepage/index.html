@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Honey Festival</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="../universal.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+    <link rel="manifest" href="../favicon/site.webmanifest">
+    <script src="../loader.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <button onclick="goToTop()" id="top_btn"><img src="../assets/arrow.png" alt="Arrow"></button>
+        <div class="coverpage">
+            <div id="sidebar" class="overlay">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <div class="overlay-content">
+                    <div>
+                        <p>01</p>
+                        <a href="./index.html">Home</a>
+                    </div>
+                    <div>
+                        <p>02</p>
+                        <a href="../schedule/schedule.html">Schedule</a>
+                    </div>
+
+                    <div>
+                        <p>03</p>
+                        <a href="../facilities/facilities.html">Facilites</a>
+                    </div>
+
+                    <div>
+                        <p>04</p>
+                        <a href="../store/tickets.php">Tickets</a>
+                    </div>
+                    <div>
+                        <p>05</p>
+                        <a href="../store/merch.html">Merch</a>
+                    </div>
+
+                    <div>
+                        <p>06</p>
+                        <a href="../gallery/gallery.html">Gallery</a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="header">
+                <span onclick="openNav()" class="open"><img src="../assets/hamburger-menu.svg" alt="Menu"
+                        id="menu-img"></span>
+                <div class="accountbtn">
+                    <a href="../account/cart.php">
+                        <img src="../assets/cart.ico" alt="Shopping cart">
+                    </a>
+                    <a href="../account/welcome.php">
+                        <img src="../assets/user-icon.png" alt="User icon">
+                    </a>
+                </div>
+            </div>
+
+            <video id="background-video" autoplay loop muted>
+                <source src="../assets/bg-video.mp4" type="video/mp4">
+            </video>
+            <div class="main">
+                <div class="info">
+                    <h1 class="main-heading">Honey Festival</h1>
+                    <h1 class="main-heading">03.07.2025.</h1>
+                    <p>Stanfield Marsh Wildlife Boardwalk Park, California, USA</p>
+                    <br>
+                    <a href="../store/tickets.php" id="buy_btn">Buy tickets</a>
+                </div>
+            </div>
+        </div>
+        <div class="findout">
+            <video id="background-video2" autoplay loop muted>
+                <source src="../assets/findout-vid.mp4" type="video/mp4">
+            </video>
+            <div class="findout-content">
+                <h1 id="countdown" class="main-captions"></h1>
+                <a href="#aboutus">Find out more</a>
+            </div>
+        </div>
+        <div class="aboutus" id="aboutus">
+            <div class="aboutus-grid">
+                <div class="left-side">
+                    <img src="../assets/concert-img.jpg" alt="Concert image" id="concert-img">
+                </div>
+                <div class="right-side">
+                    <div class="abt-text">
+                        <p class="small-headings">what you should know</p>
+                        <h1 class="main-captions">about us</h1>
+                        <p>
+                            The Honey Festival is where indie and psychedelic culture collide, bringing together music,
+                            art, and community in a laid-back, vibrant setting. With 24/7 activities, including
+                            workshops, panels, and live performances, the festival offers something for everyone.
+                            Whether you're discovering new music, relaxing in our chill zones, or immersing yourself in
+                            unique experiences, the Honey Festival promises to be an unforgettable journey. Come as you
+                            are and leave with memories that last a lifetime.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="location">
+            <div class="location-grid">
+                <div class="left-side1">
+                    <div class="location-text">
+                        <p class="small-headings">where you can find us</p>
+                        <h1 class="main-captions">location</h1>
+                        <p>
+                            Located in the heart of Big Bear, our festival site pulsates with energy and
+                            creativity. Follow the rhythmic beats and
+                            melodious tunes as they guide you through the lively streets, leading you to our festival
+                            haven. Nestled in Stanfield Marsh Wildlife Boardwalk Park, the air is filled with the aroma
+                            of delicious street
+                            food and the sights of colorful art installations. Dance under the open sky, surrounded by
+                            enthusiastic music lovers, as the sun sets and the stars illuminate the night.
+                        </p>
+                    </div>
+                </div>
+                <div class="right-side1">
+                    <img src="../assets/location-img.jpg" alt="Location image" id="location-img">
+                </div>
+            </div>
+        </div>
+        <div class="nums">
+            <div class="paragraphs">
+                <div class="p">
+                    <p class="small-headings">bringing honeybees together</p>
+                    <h1 class="main-captions">Honey in Numbers</h1>
+                </div>
+                <div id="blurred1"></div>
+                <div class="num-grid">
+                    <div class="left">
+                        <div class="left1 hover">
+                            <h1>1200+</h1>
+                            <p>Attendees</p>
+                        </div>
+                        <div class="right1">
+                            <div class="left2 hover">
+                                <h1>30+</h1>
+                                <p>Musicians</p>
+                            </div>
+                            <div class="right2 hover">
+                                <h1>3</h1>
+                                <p>Stages</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="left3 hover">
+                            <h1>150+</h1>
+                            <p>Companies</p>
+                        </div>
+                        <div class="right3">
+                            <div class="left4 hover">
+                                <h1>3</h1>
+                                <p>Days</p>
+                            </div>
+                            <div class="right4 hover">
+                                <h1>1</h1>
+                                <p>Unique Experience</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="faq">
+            <img src="../assets/star-png.png" id="star3" alt="Star">
+            <div class="faq-captions">
+                <p class="small-headings">let's talk</p>
+                <h1 class="main-captions">FAQs</h1>
+            </div>
+            <div id="accordion">
+                <h3>What is Honey Festival?</h3>
+                <div>
+                    <p>
+                        Honey Festival is a four-day indie music festival featuring live concerts, DJ sets, workshops,
+                        panels, and more. A celebration
+                        of music, art, and community.
+                    </p>
+                </div>
+                <h3>What kind of music can I expect?</h3>
+                <div>
+                    <p>
+                        The festival features a mix of indie, psychedelic, folk, and alternative artists, along with
+                        immersive DJ sets with popular DJs. Make sure to check the <a href="../schedule/schedule.html">line up</a>.
+                    </p>
+                </div>
+                <h3>Where can I buy tickets?</h3>
+                <div>
+                    <p>
+                        Tickets can be purchased <a href="../store/tickets.php">online</a>. Be sure to grab them early - prices increase
+                        closer to the event! There will also be a limited number of tickets at the gate.
+                    </p>
+                </div>
+                <h3>Are there age restrictions?</h3>
+                <div>
+                    <p>
+                        Honey Festival is an 18+ event. Attendees must bring a valid photo ID for entry. Attendees under
+                        18 must be accompanied by an
+                        adult.
+                    </p>
+                </div>
+                <h3>Can I camp at the festival?</h3>
+                <div>
+                    <p>
+                        Yes! We have many <a href="../facilities/facilities.html">options</a>. A designated camping area, plus glamping options for
+                        those who want extra comfort.
+                    </p>
+                </div>
+                <h3>What items are prohibited?</h3>
+                <div>
+                    <p>
+                        Prohibited items include weapons, illegal substances, glass bottles, large speakers, and outside
+                        alcohol. A full list of banned items will be provided before the festival.</p>
+                </div>
+                <h3>How can I get involved?</h3>
+                <div>
+                    <p>
+                        You can <a href="../involvement/volunteer.html">apply</a> to volunteer for free entry or to be a
+                        <a href="../involvement/vendor.html">vendor</a> or
+                        <a href="../involvement/sponsor.html">sponsor</a> as well as be an <a
+                            href="../involvement/ambassador.html">ambassador</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="gallery">
+            <img src="../assets/star-png.png" alt="Star" id="star1">
+            <div class="gallery-content">
+                <h1 class="main-captions">Moments from 2024</h1>
+                <div class="photos">
+                    <img src="../assets/star-png.png" alt="Star" id="star">
+
+                    <img id="img1" src="../assets/concert-gallery.jpg" alt="Concert image">
+
+                    <div id="modal1" class="modal">
+                        <span class="close">&times;</span>
+                        <img class="modal-content" id="img01" alt="Concert full image">
+                    </div>
+
+                    <img id="img2" src="../assets/couple-gallery.jpg" alt="Couple image">
+
+                    <div id="modal2" class="modal">
+                        <span class="close">&times;</span>
+                        <img class="modal-content" id="img02" alt="Couple full image">
+                    </div>
+
+                    <img id="img3" src="../assets/person-gallery.jpg" alt="Person image">
+
+                    <div id="modal3" class="modal">
+                        <span class="close">&times;</span>
+                        <img class="modal-content" id="img03" alt="Person full image">
+                    </div>
+
+                    <img id="img4" src="../assets/stage-gallery.jpg" alt="Stage image">
+                    <div id="modal4" class="modal">
+                        <span class="close">&times;</span>
+                        <img class="modal-content" id="img04" alt="Stage full image">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="newsletter">
+            <img src="../assets/newsletter1-img.jpg" alt="Concert image">
+            <div class="newsletter-content">
+                <p class="small-headings">become a honeybee</p>
+                <h1 class="main-captions">Sign up for the newsletter!</h1>
+                <br>
+                <p>Be the first to know about artist lineups, exclusive events, special offers, and all the magic
+                    happening
+                    at
+                    Honey Festival. Stay connected with the latest news, behind-the-scenes content, and surprises just
+                    for
+                    our
+                    Honeybees. Don’t miss out - join the hive!</p>
+                <br>
+                <form action="">
+                    <div class="name">
+                        <select name="titles" id="titles" required>
+                            <option value="mr">Mr.</option>
+                            <option value="mrs">Mrs.</option>
+                            <option value="ms">Ms.</option>
+                            <option value="mx">Mx.</option>
+                        </select>
+                        <input type="text" name="name" id="name" required placeholder="Name">
+                    </div>
+                    <div class="mail">
+
+                        <input type="email" name="email" id="email" required placeholder="E-mail">
+                    </div>
+                    <input type="submit" id="send" value="Join">
+                </form>
+                <br>
+                <p id="thankYou"></p>
+            </div>
+        </div>
+        <div class="sponsors">
+            <div class="sponsors-content">
+                <p class="small-headings">Making the Honey Festival Possible</p>
+                <h1 class="main-captions">2025 sponsors</h1>
+            </div>
+            <div class="sponsor-photos">
+                <img src="../assets/star-png.png" alt="Star" id="star2">
+                <img src="../assets/logo1.png" alt="Arcadia Labs">
+                <img src="../assets/logo2.png" alt="Lunar Graphics">
+                <img src="../assets/logo3.png" alt="Luxe Ride">
+                <img src="../assets/logo4.png" alt="Vesuvio's Pizza">
+                <img src="../assets/logo5.png" alt="Wildroot Organics">
+                <img src="../assets/logo6.png" alt="Embrew Brew Co.">
+                <img src="../assets/logo7.png" alt="Solstice Threads">
+                <img src="../assets/logo8.png" alt="Aurora Soundworks">
+            </div>
+            <br>
+            <a href="../involvement/sponsor.html" id="becomesponsor">Become a sponsor</a>
+        </div>
+        <div class="footer">
+            <video id="background-videoo" autoplay loop muted>
+                <source src="../assets/bg-video1.mp4" type="video/mp4">
+            </video>
+            <div class="footer-content">
+                <div class="motto">
+                    <h1 class="main-heading" id="footer-heading">
+                        A Hive of Music, Art, and Energy.
+                    </h1>
+                </div>
+
+                <div class="hr">
+                    <hr>
+                </div>
+                <div class="footer-grid">
+                    <div class="column-one">
+                        <img src="../assets/logofooter.png" id="footer-logo" alt="Logo">
+                        <div class="socials">
+                            <a href="https://www.facebook.com/" class="social-links">
+                                <img src="../assets/icons8-facebook.svg" alt="Facebook">
+                            </a>
+                            <a href="https://www.youtube.com/" class="social-links">
+                                <img src="../assets/icons8-youtube.svg" alt="YouTube">
+                            </a>
+                            <a href="https://www.instagram.com/" class="social-links">
+                                <img src="../assets/icons8-instagram-64.svg" alt="Instagram">
+
+                            </a>
+                        </div>
+                        <a href="../contact/contact.html" id="ctn-btn">Contact us</a>
+                    </div>
+                    <div class="column-two">
+                        <ul>
+                            <li><a href="./index.html">General</a></li>
+                            <li><a href="../schedule/schedule.html">Schedule</a></li>
+                            <li><a href="../facilities/facilities.html">Facilities</a></li>
+                            <li><a href="../store/tickets.php">Tickets</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="../store/merch.html">Merch</a></li>
+                            <li><a href="../involvement/get-involved.html">Join us</a></li>
+                            <li><a href="../contact/contact.html">Contact</a></li>
+                            <li><a href="../privacy-terms/privacy.html">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    <div class="column-three">
+                        <p>Our goal is to create an experience that exceeds expectations, inspires people, and
+                            brings
+                            moments of joy with every interaction. The Honey Festival is more than just an event –
+                            it’s
+                            a lifestyle, a source of energy, and a trusted space for those seeking to refresh their
+                            body, mind, and soul.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="copyright">
+                    <p>Copyright – All rights reserved 2025.</p>
+                    <a href="../privacy-terms/terms.html">Terms & conditions</a>
+                    <a href="../privacy-terms/privacy.html">Privacy policy</a>
+                    <p>Made with ♡ by Marina Žižić</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script src="../universal.js"></script>
+<script src="./index.js"></script>

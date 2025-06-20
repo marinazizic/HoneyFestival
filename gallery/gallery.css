@@ -1,0 +1,256 @@
+/* fonts */
+@font-face {
+    font-family: Praysire;
+    src: url(../fonts/praysire/Praysire\ Demo.otf);
+}
+
+@font-face {
+    font-family: Louis George Cafe;
+    src: url(../fonts/louis_george_caf/Louis\ George\ Cafe.ttf);
+}
+
+@font-face {
+    font-family: Louis George Cafe Bold;
+    src: url(../fonts/louis_george_caf/Louis\ George\ Cafe\ Bold.ttf);
+}
+
+/* code */
+
+.gallery-main {
+    height: 40vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#gallery-img {
+    z-index: -1;
+    width: 100%;
+    height: 70vh;
+    object-fit: cover;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.gallery {
+    background-color: white;
+    min-height: 120vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.gallery span {
+    text-decoration: underline;
+    font-style: italic;
+}
+
+.gallery-content {
+    padding: 100px 0px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.small-headings {
+    margin: 0px;
+}
+
+.gallery-content h1 {
+    font-family: Praysire;
+    padding: 7px 0px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 320px 320px 320px;
+    grid-template-rows: repeat(5, 250px);
+    grid-gap: 15px;
+}
+
+.photo {
+    object-fit: cover;
+
+}
+
+.photo img {
+    width: 320px;
+    height: 250px;
+}
+
+.three img,
+.six img,
+.ten img {
+    height: 515px;
+}
+
+.one {
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+.two {
+    grid-area: 1 / 2 / 2 / 3;
+}
+
+.three {
+    grid-area: 1 / 3 / 3 / 4;
+}
+
+.four {
+    grid-area: 2 / 1 / 3 / 2;
+}
+
+.five {
+    grid-area: 2 / 2 / 3 / 3;
+}
+
+.six {
+    grid-area: 3 / 1 / 4 / 2;
+}
+
+.seven {
+    grid-area: 3 / 2 / 4 / 3;
+}
+
+.eight {
+    grid-area: 3 / 3 / 4 / 4;
+}
+
+.nine {
+    grid-area: 4 / 2 / 5 / 3;
+}
+
+.ten {
+    grid-area: 4 / 3 / 5 / 4;
+}
+
+
+.eleven {
+    grid-area: 5 / 1 / 6 / 2;
+}
+
+.twelve {
+    grid-area: 5 / 2 / 6 / 3;
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+
+    .gallery-content {
+        width: 85%;
+    }
+
+
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: 200px 200px 200px;
+        grid-template-rows: repeat(5, 150px);
+        grid-gap: 15px;
+    }
+
+
+    .photo img {
+        width: 200px;
+        height: 150px;
+    }
+
+    .three img,
+    .six img,
+    .ten img {
+        height: 315px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+
+    .gallery-coverpage {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: repeat(15, 250px);
+        grid-gap: 15px;
+    }
+
+    .photo {
+        object-fit: cover;
+    }
+
+    .photo img {
+        width: 320px;
+        height: 250px;
+    }
+
+    .three img,
+    .six img,
+    .ten img {
+        height: 515px;
+    }
+
+    .one {
+        grid-area: 1 / 1 / 2 / 2;
+    }
+
+    .two {
+        grid-area: 2 / 1 / 3 / 2;
+    }
+
+    .three {
+        grid-area: 3 / 1 / 5 / 2;
+    }
+
+    .four {
+        grid-area: 5 / 1 / 6 / 2;
+    }
+
+    .five {
+        grid-area: 6 / 1 / 7 / 2;
+    }
+
+    .six {
+        grid-area: 7 / 1 / 9 / 2;
+    }
+
+    .seven {
+        grid-area: 9 / 1 / 10 / 2;
+    }
+
+    .eight {
+        grid-area: 10 / 1 / 11 / 2;
+    }
+
+    .nine {
+        grid-area: 11 / 1 / 12 / 2;
+    }
+
+    .ten {
+        grid-area: 12 / 1 / 14 / 2;
+    }
+
+
+    .eleven {
+        grid-area: 14 / 1 / 15 / 2;
+    }
+
+    .twelve {
+        grid-area: 15 / 1 / 16 / 2;
+    }
+
+}
