@@ -7,7 +7,7 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-$user_id = (int) $_SESSION['user_id'];
+$user_id = $_SESSION['user_id'];
 
 $insert_sql = "
     INSERT INTO shipped_orders (user_id, product_id, price, quantity, size, added_at)

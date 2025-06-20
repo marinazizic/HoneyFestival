@@ -1,4 +1,3 @@
-// Sidebar Functions
 function openNav() {
     document.getElementById("sidebar").style.width = "100%";
 }
@@ -7,7 +6,6 @@ function closeNav() {
     document.getElementById("sidebar").style.width = "0%";
 }
 
-// Scroll To Top Button
 let button = document.getElementById("top_btn");
 
 window.onscroll = function () {

@@ -27,10 +27,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $account_id = generateAccountID($conn);
     $birthday = '2000-01-01';
 
+
     $check_email_stmt = $conn->prepare("SELECT id FROM users WHERE email = ?");
     $check_email_stmt->bind_param("s", $email);
     $check_email_stmt->execute();
     $check_email_stmt->store_result();
+
 
     $check_username_stmt = $conn->prepare("SELECT id FROM users WHERE username = ?");
     $check_username_stmt->bind_param("s", $username);

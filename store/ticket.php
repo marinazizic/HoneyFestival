@@ -58,6 +58,10 @@ $conn->close();
         $('form').on('submit', function(e) {
             e.preventDefault();
 
+            const quantityVal = $('#product-quantity').val();
+            $(this).find('input[name="quantity"]').val(quantityVal);
+
+
             const form = $(this);
             const formData = form.serialize();
 
@@ -78,18 +82,13 @@ $conn->close();
                     }
                 },
                 error: function() {
-                        document.getElementsByClassName("alert")[0].classList.add("contains-alert");
-                        document.getElementById("error").innerHTML = 'You must be logged in to add to cart';
-                        document.body.scrollTop = 0;
-                        document.documentElement.scrollTop = 0;
+                    document.getElementsByClassName("alert")[0].classList.add("contains-alert");
+                    document.getElementById("error").innerHTML = 'You must be logged in to add to cart';
+                    document.body.scrollTop = 0;
+                    document.documentElement.scrollTop = 0;
                 }
             });
         });
-        $('form').on('submit', function(e) {
-            const quantityVal = $('#product-quantity').val();
-            $(this).find('input[name="quantity"]').val(quantityVal);
-        });
-
     });
 </script>
 
@@ -133,7 +132,7 @@ $conn->close();
 
                     <div>
                         <p>06</p>
-                        <a href="../gallery/gallery.html">Gallery</a>    
+                        <a href="../gallery/gallery.html">Gallery</a>
                     </div>
                 </div>
             </div>

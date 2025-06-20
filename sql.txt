@@ -1,0 +1,138 @@
+//KORISNICI
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    f_name VARCHAR(50) NOT NULL,
+    l_name VARCHAR(50) NOT NULL,
+    gender ENUM('male', 'female', 'other') NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    account_id INT NOT NULL UNIQUE,
+    birthday DATE NOT NULL,
+    country VARCHAR(100),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    profile_pic VARCHAR(255) DEFAULT NULL
+);
+
+// KARTE
+
+CREATE TABLE tickets (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    ticket_type ENUM('1 day', '3 day', '1 day vip', '3 day vip', '1 day elite', '3 day elite') NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    quantity_available INT NOT NULL
+);
+
+DELIMITER //
+
+
+CREATE TRIGGER set_ticket_price
+BEFORE INSERT ON tickets
+FOR EACH ROW
+BEGIN
+    IF NEW.ticket_type = '1 day' THEN
+        SET NEW.price = 89.00;
+    ELSEIF NEW.ticket_type = '3 day' THEN
+        SET NEW.price = 219.00;
+    ELSEIF NEW.ticket_type = '1 day vip' THEN
+        SET NEW.price = 149.00;
+    ELSEIF NEW.ticket_type = '3 day vip' THEN
+        SET NEW.price = 369.00;
+    ELSEIF NEW.ticket_type = '1 day elite' THEN
+        SET NEW.price = 249.00;
+    ELSEIF NEW.ticket_type = '3 day elite' THEN
+        SET NEW.price = 499.00;
+    END IF;
+END //
+
+DELIMITER ;
+
+ALTER TABLE tickets AUTO_INCREMENT = 100;
+
+ALTER TABLE tickets
+ADD COLUMN name VARCHAR(100) NOT NULL AFTER id,
+ADD COLUMN whats_included TEXT AFTER price;
+
+
+INSERT INTO tickets (id, name, ticket_type, price, whats_included, quantity_available) VALUES
+(100, 'Bumble Pass', '1 day', 0.00, 'Access to all concerts, talks, panels & workshops for 1 chosen day. General festival area access (including food court, markets, art installations). Free access to the nectar lounge. Access to the camping zone if staying overnight (Buzzfield). 1 complimentary recycle kit (bag + bottle).', 500),
+
+(102, 'Golden Wing Pass', '1 day vip', 0.00, 'Everything in 1 day pass. Priority entry at all entrances. Access to VIP viewing zones at main stages. Access to VIP zone of nectar lounge. 1 welcome drink at VIP bar at the Buzz Boost. Fast track lockers and toilets. Charging station token included.', 200),
+
+(104, 'Queen Bee Pass', '1 day elite', 0.00, 'Everything in VIP. Backstage tour. Meet & greet or photo opportunity with surprise artist or speaker (randomized schedule). 1 free meal and 2 drink tokens. Honey festival gift box (includes tote, enamel pin, eco water bottle).', 100),
+
+(101, 'Hive Weekend Pass', '3 day', 0.00, 'Access to all concerts, talks, panels, workshops & activities for all 3 days. Access to general camping zone (Buzzfield). Free shuttle from central stations (designated cities). 1 honey festival map and guidebook. 1 recycle kit and lanyard. Option to register for pre-festival morning yoga or meditation slots.', 300),
+
+(103, 'Royal Nectar Pass', '3 day vip', 0.00, 'Everything in 3 day. VIP lounge access of nectar lounge. VIP comfort viewing zones for main shows. Exclusive VIP merch booth access. 1 welcome drink at VIP bar. 3 drink tokens per day. Premium bathroom & fast track lines for food and drinks. Free phone charging all weekend.', 150),
+
+(105, 'The Supreme Honey Pass', '3 day elite', 0.00, 'Everything in VIP. Backstage tour. Artist afterparty invite (closing night). 1 meet & greet slot guaranteed with a headliner or speaker. Early access to the campsite (can arrive the evening before). Elite only shaded zone near the main stage. Honey festival deluxe gift box with merch and perks. 1 free meal and two free drinks per day.', 75);
+
+
+// MERCH
+
+CREATE TABLE merch (
+  id INT PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  price DECIMAL(10,2) NOT NULL,
+  description TEXT,
+  category VARCHAR(100),
+  image_url VARCHAR(500),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT INTO merch (id, title, price, description, category, image_url) VALUES
+(1, 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops', 109.95, 'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday.', 'merch', 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'),
+(2, 'Mens Casual Premium Slim Fit T-Shirts', 22.30, 'Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.', 'merch', 'https://fakestoreapi.com/img/71-3HjGNDUL._AC_UL600_SR600,400_.jpg'),
+(3, 'Mens Cotton Jacket', 55.99, 'Great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm-hearted love to Father, husband or son in this thanksgiving or Christmas Day.', 'merch', 'https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg'),
+(4, 'Mens Casual Slim Fit', 15.99, 'The color could be slightly different between on the screen and in practice. / Please note that body builds vary by person, therefore, detailed size information should be reviewed below on the product description.', 'merch', 'https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg'),
+(5, 'John Hardy Women''s Legends Naga Gold & Silver Dragon Station Chain Bracelet', 695.00, 'From our Legends Collection, the Naga was inspired by the mythical water dragon that protects the ocean''s pearl. Wear facing inward to be bestowed with love and abundance, or outward for protection.', 'merch', 'https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg'),
+(6, 'Solid Gold Petite Micropave', 168.00, 'Satisfaction Guaranteed. Return or exchange any order within 30 days. Designed and sold by Hafeez Center in the United States. Satisfaction Guaranteed. Return or exchange any order within 30 days.', 'merch', 'https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg'),
+(7, 'White Gold Plated Princess', 9.99, 'Classic Created Wedding Engagement Solitaire Diamond Promise Ring for Her. Gifts to spoil your love more for Engagement, Wedding, Anniversary, Valentine''s Day...', 'merch', 'https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg'),
+(8, 'Pierced Owl Rose Gold Plated Stainless Steel Double', 10.99, 'Rose Gold Plated Double Flared Tunnel Plug Earrings. Made of 316L Stainless Steel', 'merch', 'https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg'),
+(9, 'WD 2TB Elements Portable External Hard Drive - USB 3.0', 64.00, 'USB 3.0 and USB 2.0 Compatibility Fast data transfers Improve PC Performance High Capacity; Compatibility Formatted NTFS for Windows 10, Windows 8.1, Windows 7; Reformatting may be required for other operating systems; Compatibility may vary depending on user’s hardware configuration and operating system', 'merch', 'https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg'),
+(10, 'SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s', 109.00, 'Easy upgrade for faster boot-up, shutdown, application load and response (As compared to 5400 RPM SATA 2.5” hard drive; Based on published specifications and internal benchmarking tests using PCMark Vantage scores). Boosts burst write performance, making it ideal for typical PC workloads. The perfect balance of performance and reliability. Read/write speeds of up to 535MB/s/450MB/s (based on internal testing; performance may vary depending upon drive capacity, host device, OS and application.)', 'merch', 'https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_.jpg'),
+(11, 'Silicon Power 256GB SSD 3D NAND A55 SLC Cache Performance Boost SATA III 2.5', 109.00, '3D NAND flash are applied to deliver high transfer speeds. Remarkable transfer speeds that enable faster bootup and improved overall system performance. High efficiency performance - Good for gaming, video editing, and multitasking. The advanced SLC Cache Technology allows performance boost and longer lifespan.', 'merch', 'https://fakestoreapi.com/img/71kWymZ+c+L._AC_SX679_.jpg'),
+(12, 'WD 4TB Gaming Drive Works with Playstation 4 Portable External Hard Drive', 114.00, 'Expand your PS4 gaming experience, Play anywhere Fast and easy, setup Sleek design with high capacity, 3-year manufacturer’s limited warranty', 'merch', 'https://fakestoreapi.com/img/61mtL65D4cL._AC_SX679_.jpg'),
+(13, 'Acer SB220Q bi 21.5 inches Full HD (1920 x 1080) IPS Ultra-Thin', 599.00, '21. 5 inches Full HD (1920 x 1080) widescreen IPS display. And Radeon free Sync technology. No compatibility for VESA Mount. Refresh Rate: 75Hz - Using HDMI port. Zero-frame design | ultra-thin | 4ms response time | IPS panel. Ports: 1 x HDMI & 1 x VGA', 'merch', 'https://fakestoreapi.com/img/81QpkIctqPL._AC_SX679_.jpg'),
+(14, 'Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor', 999.99, '49 INCH SUPER ULTRAWIDE 32:9 CURVED GAMING MONITOR with dual 27 inch screen side by side; VA panel. HIGH REFRESH RATE 144Hz. Supports HDR (High Dynamic Range) for deeper contrast. Includes multiple input options and gamer-friendly features.', 'merch', 'https://fakestoreapi.com/img/81Zt42ioCgL._AC_SX679_.jpg'),
+(15, 'BIYLACLESEN Women''s 3-in-1 Snowboard Jacket Winter Coats', 56.99, 'Note: The jackets are US standard size, please choose size as your usual wear. Material: 100% Polyester; Detachable lining; warm fleece inner jacket. Water-repellent and windproof outer shell. Best use: downhill skiing, snowboarding, snow sports and other winter outdoor sports.', 'merch', 'https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg'),
+(16, 'Lock and Love Women''s Removable Hooded Faux Leather Moto Biker Jacket', 29.95, '100% Polyurethane (Shell) and 100% Polyester (Lining). Removable hood with drawstring. Faux leather material for style and comfort. Versatile design for many occasions.', 'merch', 'https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_.jpg'),
+(17, 'Rain Jacket Women Windbreaker Striped Climbing Raincoats', 39.99, 'Lightweight perfect for trip or casual wear—Waterproof material, easy to pack. Drawstring hood, two front pockets. Great for light rain and wind. Suitable for all seasons.', 'merch', 'https://fakestoreapi.com/img/71HblAHs5xL._AC_UY879_-2.jpg'),
+(18, 'MBJ Women''s Solid Short Sleeve Boat Neck V', 9.85, '95% RAYON 5% SPANDEX. Lightweight fabric with stretch for comfort. Elegant and simple design. Perfect for casual and workwear.', 'merch', 'https://fakestoreapi.com/img/71z3kpMAYsL._AC_UY879_.jpg'),
+(19, 'Opna Women''s Short Sleeve Moisture', 7.95, '100% Polyester. Moisture wicking. Soft lightweight fabric. Suitable for sports or casual wear. Tag-free label for added comfort.', 'merch', 'https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg'),
+(20, 'DANVOUY Womens T Shirt Casual Cotton Short', 12.99, '95% Cotton, 5% Spandex. Features: Casual, Short Sleeve, Letter Print, V-Neck, Fashion Tees. Comfortable and stylish design for daily wear.', 'merch', 'https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg');
+
+
+// KOSARICA
+
+CREATE TABLE cart (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    product_id INT NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    quantity INT NOT NULL,
+    size VARCHAR(10) DEFAULT NULL,
+    added_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
+    
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+
+ALTER TABLE cart ADD UNIQUE INDEX unique_cart_item (user_id, product_id, size);
+
+ 
+//NARUDZBE
+
+CREATE TABLE shipped_orders (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    product_id INT NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    quantity INT NOT NULL,
+    size VARCHAR(10) DEFAULT NULL,
+    added_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    shipped_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
